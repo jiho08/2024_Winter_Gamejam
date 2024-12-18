@@ -23,13 +23,15 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
+        LookAtMouse();
         inputVector = inputAction.Player.Move.ReadValue<Vector2>();
+        Slow();
     }
 
     private void FixedUpdate()
     {
         Move();
-        LookAtMouse();
+        
     }
 
     public void Move()
@@ -47,6 +49,20 @@ public class PlayerMove : MonoBehaviour
         angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
+    }
+
+    public void Slow()
+    {
+        if(inputVector == Vector2.zero) 
+        {
+            Time.timeScale = 0.1f;
+            
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
+        Time.fixedDeltaTime = 0.001f;
     }
     
 }
