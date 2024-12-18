@@ -13,8 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask whatIsPlayer, whatIsObstacle;
 
     [SerializeField] private GameObject weapon;
-    
-    [SerializeField] private WeaponDataSO _weaponData;
+
+    [SerializeField] private WeaponDataSO weaponData;
+    [SerializeField] private GameObject deadParticle;
 
     private NavMeshAgent _agent;
     private SpriteRenderer _renderer;
@@ -37,10 +38,10 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         LookAtTarget();
-        
+
         _renderer.enabled = !CheckTargetBetweenWall();
         weapon.SetActive(!CheckTargetBetweenWall());
-        
+
         if (_lastCheckTime + _checkTimer < Time.time)
         {
             _lastCheckTime = Time.time;
@@ -72,7 +73,7 @@ public class Enemy : MonoBehaviour
     {
         PoolManager.Spawn(0, weapon.transform);
 
-        yield return new WaitForSeconds(_weaponData.attackDelay);
+        yield return new WaitForSeconds(weaponData.attackDelay);
     }
 
     private bool CheckTargetInCheckRadius()
@@ -156,8 +157,8 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            Debug.Log("죽음");
             Destroy(gameObject);
+            Instantiate(deadParticle, transform.position, Quaternion.identity);
         }
     }
 
