@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1732572604943363093}
   - component: {fileID: 8783011889382511290}
   - component: {fileID: 7885388675829985715}
+  - component: {fileID: 4220968005120509567}
   m_Layer: 10
   m_Name: Mine
   m_TagString: Untagged
@@ -29,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 184906196129446248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.37, y: 0.78, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4984934837389404495}
@@ -80,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: -971112171
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.3773585, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -141,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   causeExplosivelayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 192
 --- !u!50 &7885388675829985715
 Rigidbody2D:
   serializedVersion: 5
@@ -169,6 +170,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4220968005120509567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184906196129446248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
 --- !u!1 &3371081968893457592
 GameObject:
   m_ObjectHideFlags: 0

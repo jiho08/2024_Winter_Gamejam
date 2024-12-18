@@ -4,7 +4,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMove : MonoBehaviour
 {
-    InputSystem_Actions inputAction;
+    public InputSystem_Actions inputAction;
+    public PlayerDeadCheck deadCheck;
     Rigidbody2D rb;
 
     public float speed = 1;
@@ -18,7 +19,8 @@ public class PlayerMove : MonoBehaviour
 
         inputAction.Player.Enable();
 
-        rb = GetComponent<Rigidbody2D>();    
+        rb = GetComponent<Rigidbody2D>(); 
+        deadCheck = GetComponent<PlayerDeadCheck>();
     }
 
     private void Update()
@@ -53,6 +55,8 @@ public class PlayerMove : MonoBehaviour
 
     public void Slow()
     {
+        if(deadCheck.isDead) return;
+
         if(inputVector == Vector2.zero) 
         {
             Time.timeScale = 0.1f;
