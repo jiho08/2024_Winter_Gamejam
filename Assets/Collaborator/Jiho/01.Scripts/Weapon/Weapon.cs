@@ -1,38 +1,46 @@
+using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
-    
-    public WeaponDataSO data;
-    private float attackDelay;
-    private float attackRange;
-    private GameObject projectilePrefab;
-    private int projectileCount;
+    [SerializeField] private WeaponDataSO weaponData;
 
-    private void Awake()
+    private float _currentDelay;
+    private int _ammo;
+
+    private void Start()
     {
-        attackDelay = data.attackDelay;
-        attackRange = data.attackRange;
-        projectilePrefab = data.projectilePrefab;
-        projectileCount = data.projectileCount;
+        _currentDelay = weaponData.attackDelay;
+        _ammo = weaponData.ammo;
     }
-
 
     private void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        _currentDelay += Time.deltaTime;
+
+        if (Input.GetMouseButtonDown(0))
         {
+            if (_currentDelay < weaponData.attackDelay || _ammo <= 0)
+            {
+                // 안된다는 효과음 재생
+                return;
+            }
+
             Shoot();
+            --_ammo;
         }
     }
+
     private void Shoot()
     {
-        PoolManager.Spawn(0, transform);
+        PoolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse);
     }
 
-    public void ChangeWeapon(WeaponDataSO weapon)
+    // 웨폰 체인지 됐을 때 어택 딜레이, 탄창 초기화 시켜주기
+    
+    public void WeaponChange()
     {
-        data = weapon;
+        _currentDelay = weaponData.attackDelay;
+        _ammo = weaponData.ammo;
     }
 }
