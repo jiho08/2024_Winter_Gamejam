@@ -48,13 +48,11 @@ public class StartSceneManager : MonoBehaviour
         {
             StartPanel.SetActive(false);
             StageSelectPanel.SetActive(true);
-            Debug.Log("스테이지 선택");
         }
         else
         {
             StageSelectPanel.SetActive(false);
             StartPanel.SetActive(true);
-            Debug.Log("스타트");
         }
     }
 }
