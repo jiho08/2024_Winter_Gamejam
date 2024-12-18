@@ -26,6 +26,6 @@ public class Weapon : MonoBehaviour
     }
     private void Shoot()
     {
-        Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        PoolManager.Spawn(0, transform.position);
     }
 }
