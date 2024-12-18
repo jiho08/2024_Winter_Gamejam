@@ -11,6 +11,6 @@ public class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
-        rb.AddForce(Input.mousePosition.normalized * 10, ForceMode2D.Impulse);
+        rb.AddForce(Camera.main.ScreenToWorldPoint(Input.mousePosition).normalized * 10, ForceMode2D.Impulse);
     }
 }
