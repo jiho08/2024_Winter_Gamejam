@@ -242,7 +242,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adb11d2ff4f7534dbde1b68d7af285b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetCheckRadius: 8
+  targetCheckAngle: 180
+  attackRadius: 5
+  attackAngle: 180
   target: {fileID: 611123036}
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 0
+  whatIsObstacle:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &611123034
 GameObject:
   m_ObjectHideFlags: 0
