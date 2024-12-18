@@ -1,15 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StartScene_Button : MonoBehaviour
 {
     [SerializeField] private GameObject _settings;
     [SerializeField] private Animator settings_Animator, fade_Animator;
-    [SerializeField] private Image _fade;
+    [SerializeField] private GameObject StartPanel, StageSelectPanel;
 
-    public void OnPlay()
+    private void Awake()
     {
-        fade_Animator.SetTrigger("Fade");
+        StartPanel.SetActive(true);
+        StageSelectPanel.SetActive(false);
     }
 
     public void OnSettings()
@@ -25,5 +26,28 @@ public class StartScene_Button : MonoBehaviour
     public void OnQuit()
     {
         Application.Quit();
+    }
+
+
+    public void ChangeScene()
+    {
+        fade_Animator.gameObject.SetActive(true);
+        fade_Animator.SetTrigger("Fade");
+
+        if(StageSelectPanel.activeSelf)
+        {
+            StartPanel.SetActive(true);
+            StageSelectPanel.SetActive(false);
+        }
+        else
+        {
+            StageSelectPanel.SetActive(true);
+            StartPanel.SetActive(false);
+        }
+    }
+
+    public void StageSelect(int SceneNum)
+    {
+        SceneManager.LoadScene(SceneNum);
     }
 }
