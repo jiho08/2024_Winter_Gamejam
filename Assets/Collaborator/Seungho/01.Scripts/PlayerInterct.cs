@@ -12,6 +12,9 @@ public class PlayerInterct : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Weapon"))
+        {
+            //weaponCompo.ChangeWeapon();
+        }
     }
 }
