@@ -10,11 +10,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform target;
     
     [SerializeField] private LayerMask whatIsPlayer, whatIsObstacle;
-
-    private NavMeshAgent _agent;
     
     // 무기 가져오기
-
+    
+    private NavMeshAgent _agent;
+    
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
