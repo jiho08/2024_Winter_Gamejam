@@ -10,7 +10,7 @@ public class Explosives : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == (collision.gameObject.layer | (1 << causeExplosivelayer)))
+        if (((1 << collision.gameObject.layer) & causeExplosivelayer) != 0)
         {
             OnExplore?.Invoke(gameObject, collision.gameObject);
         }
