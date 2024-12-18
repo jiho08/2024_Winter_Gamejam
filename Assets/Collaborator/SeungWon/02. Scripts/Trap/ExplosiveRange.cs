@@ -12,12 +12,12 @@ public class ExplosiveRange : MonoBehaviour
     public LayerMask detectiveLayer;
     public List<GameObject> InRangeObject = new List<GameObject>();
 
-    private Explosives explosives;
+    [SerializeField] private Explosives explosives;
 
     private void OnEnable()
     {
         exploreRangeCollider = GetComponent<CircleCollider2D>();
-        explosives = GetComponentInParent<Explosives>();
+
         explosives.OnExplore += Explore;
     }
 
@@ -38,7 +38,6 @@ public class ExplosiveRange : MonoBehaviour
         if (((1 << collision.gameObject.layer) & detectiveLayer) != 0)
         {
             InRangeObject.Add(collision.gameObject);
-            Debug.Log("감지");
         }
     }
 
@@ -47,7 +46,6 @@ public class ExplosiveRange : MonoBehaviour
         if (((1 << collision.gameObject.layer) & detectiveLayer) != 0)
         {
             InRangeObject.Remove(collision.gameObject);
-            Debug.Log("감지2");
         }
     }
 

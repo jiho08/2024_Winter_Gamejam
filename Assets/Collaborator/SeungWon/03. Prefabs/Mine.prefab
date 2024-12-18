@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6047332567040755905}
   - component: {fileID: 1732572604943363093}
   - component: {fileID: 8783011889382511290}
+  - component: {fileID: 7885388675829985715}
   m_Layer: 10
   m_Name: Mine
   m_TagString: Untagged
@@ -140,7 +141,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   causeExplosivelayer:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 128
+--- !u!50 &7885388675829985715
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 184906196129446248}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &3371081968893457592
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,3 +256,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 192
   InRangeObject: []
+  explosives: {fileID: 8783011889382511290}
