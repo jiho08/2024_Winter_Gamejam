@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
+    
     public WeaponDataSO data;
     private float attackDelay;
     private float attackRange;
@@ -27,5 +29,10 @@ public class Weapon : MonoBehaviour
     private void Shoot()
     {
         PoolManager.Spawn(0, transform);
+    }
+
+    public void ChangeWeapon(WeaponDataSO weapon)
+    {
+        data = weapon;
     }
 }
