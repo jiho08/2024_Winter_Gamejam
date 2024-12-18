@@ -156,6 +156,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            Debug.Log("죽음");
             Destroy(gameObject);
         }
     }
