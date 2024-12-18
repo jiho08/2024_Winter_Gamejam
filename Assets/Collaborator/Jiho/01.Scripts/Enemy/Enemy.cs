@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask whatIsPlayer, whatIsObstacle;
 
     // 무기 가져오기
-    private WeaponDataSO _weapon;
+    [SerializeField] private WeaponDataSO _weapon;
 
     private NavMeshAgent _agent;
 
@@ -29,10 +29,12 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        LookAtTarget();
         if (_lastCheckTime + _checkTimer < Time.time)
         {
             _lastCheckTime = Time.time;
             CheckTarget();
+            
         }
 
         //_agent.SetDestination(target.position);
@@ -61,7 +63,8 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Shoot()
     {
-        PoolManager.Spawn(0, transform.position);
+        
+        PoolManager.Spawn(0, transform.GetChild(0));
 
         yield return new WaitForSeconds(_weapon.attackDelay);
     }
@@ -113,6 +116,17 @@ public class Enemy : MonoBehaviour
         }
 
         return false;
+    }
+    
+    public void LookAtTarget()
+    {
+        Vector2 targetPos;
+        float angle;
+
+        targetPos.x = target.transform.position.x - transform.position.x;
+        targetPos.y = target.transform.position.y - transform.position.y;
+        angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     private void OnCollisionEnter2D(Collision2D other)
