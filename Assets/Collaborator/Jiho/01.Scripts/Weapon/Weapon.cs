@@ -16,6 +16,14 @@ public class Weapon : MonoBehaviour
         projectileCount = data.projectileCount;
     }
 
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            Shoot();
+        }
+    }
     private void Shoot()
     {
         Instantiate(projectilePrefab, transform.position, Quaternion.identity);
