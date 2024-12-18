@@ -12,11 +12,14 @@ public class Projectile : MonoBehaviour
 
     private void OnEnable()
     {
-        rb.AddForce(Camera.main.ScreenToWorldPoint(Input.mousePosition).normalized * 10, ForceMode2D.Impulse);
+        rb.AddForce(Camera.main.ScreenToWorldPoint(Input.mousePosition).normalized * speed, ForceMode2D.Impulse);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            PoolManager.Return(0, gameObject);
+        }
     }
 }
