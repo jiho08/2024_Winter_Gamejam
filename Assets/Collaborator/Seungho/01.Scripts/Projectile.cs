@@ -4,18 +4,24 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     Rigidbody2D rb;
+    TrailRenderer tr;
     public float speed;
     public Transform owner;
+    
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        tr = GetComponent<TrailRenderer>();
         owner = transform;   
+        
     }
 
     private void OnEnable()
     {
+        tr.Clear();
         rb.linearVelocity = Vector3.zero;
+        
         rb.AddForce(owner.transform.right * speed, ForceMode2D.Impulse);
     }
 

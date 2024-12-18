@@ -44,7 +44,7 @@ public class PoolManager : MonoBehaviour
                 {
                     var bulletpool = PoolList[num].poolStack.Pop();
                     bulletpool.transform.position = owner.position;
-                    bulletpool.transform.rotation = Quaternion.identity;
+                    bulletpool.transform.rotation = owner.rotation;
                     bulletpool.GetComponent<Projectile>().owner = owner;
                     bulletpool.SetActive(true);
                 }
