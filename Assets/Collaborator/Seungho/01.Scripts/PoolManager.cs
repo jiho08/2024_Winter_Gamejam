@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,21 +18,20 @@ public class PoolManager : MonoBehaviour
 
 
     public static List<PoolObject> PoolList { get; set; }
-    
-    
+
+
     private void Awake()
     {
         PoolList = poolList;
 
         for (int i = 0; i < PoolList.Count; i++)
         {
-            for(int _ = 0; _ < PoolList[i].poolCount; _++)
+            for (int _ = 0; _ < PoolList[i].poolCount; _++)
             {
                 var temp = Instantiate(PoolList[i].poolObject, transform);
                 PoolList[i].poolStack.Push(temp);
                 temp.SetActive(false);
             }
-            
         }
     }
 
@@ -48,6 +48,7 @@ public class PoolManager : MonoBehaviour
                     bulletpool.GetComponent<Projectile>().owner = owner;
                     bulletpool.SetActive(true);
                 }
+
                 break;
 
             default:
@@ -57,7 +58,26 @@ public class PoolManager : MonoBehaviour
                 pool.SetActive(true);
                 break;
         }
-        
+    }
+
+    public static void ProjectileSpawn(Transform owner, float bulletSpeed, bool isPenetration,
+        bool isDiffuse)
+    {
+        if (PoolList[0].poolStack.Count != 0)
+        {
+            var bulletpool = PoolList[0].poolStack.Pop();
+            bulletpool.transform.position = owner.position;
+            bulletpool.transform.rotation = owner.rotation;
+
+            var bullet = bulletpool.GetComponent<Projectile>();
+
+            bullet.owner = owner;
+            bullet.speed = bulletSpeed;
+            bullet.isPenetration = isPenetration;
+            bulletpool.SetActive(true);
+
+            // bulletpool.GetComponent<Projectile>().owner = owner;
+        }
     }
 
     public static void Return(int num, GameObject poolObj)
@@ -65,7 +85,4 @@ public class PoolManager : MonoBehaviour
         PoolList[num].poolStack.Push(poolObj);
         poolObj.SetActive(false);
     }
-
-
-    
 }
