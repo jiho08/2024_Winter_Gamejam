@@ -4,7 +4,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PlayerMove : MonoBehaviour
 {
-    InputSystem_Actions inputAction;
+    public InputSystem_Actions inputAction;
     Rigidbody2D rb;
 
     public float speed = 1;
