@@ -998,7 +998,8 @@ MonoBehaviour:
   whatIsObstacle:
     serializedVersion: 2
     m_Bits: 2048
-  _weapon: {fileID: 11400000, guid: b93e4aeaa9e69fa47bea505b07516489, type: 2}
+  weapon: {fileID: 7690579428969412171}
+  _weaponData: {fileID: 11400000, guid: b93e4aeaa9e69fa47bea505b07516489, type: 2}
 --- !u!212 &1493615025
 SpriteRenderer:
   m_ObjectHideFlags: 0
