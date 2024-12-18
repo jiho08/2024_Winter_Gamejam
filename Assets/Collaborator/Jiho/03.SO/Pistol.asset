@@ -16,5 +16,7 @@ MonoBehaviour:
   attackDelay: 0
   attackRange: 0
   weaponImage: {fileID: 0}
+  projectilePrefab: {fileID: 8985867480417580802, guid: 87bfdb4d62ba1e94681596e2536f8062, type: 3}
+  projectileCount: 0
   bulletPrefab: {fileID: 0}
   bulletCount: 0
