@@ -1,14 +1,21 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class StartScene_Button : MonoBehaviour
+public class StartSceneManager : MonoBehaviour
 {
     [SerializeField] private GameObject _settings;
-    [SerializeField] private Animator settings_Animator, fade_Animator;
+    public Animator settings_Animator, fade_Animator;
     [SerializeField] private GameObject StartPanel, StageSelectPanel;
+
+    public static StartSceneManager instance;
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         StartPanel.SetActive(true);
         StageSelectPanel.SetActive(false);
     }
@@ -28,26 +35,26 @@ public class StartScene_Button : MonoBehaviour
         Application.Quit();
     }
 
-
     public void ChangeScene()
     {
         fade_Animator.gameObject.SetActive(true);
         fade_Animator.SetTrigger("Fade");
+        Invoke("SceneLoad", 0.4f);
+    }
 
-        if(StageSelectPanel.activeSelf)
+    private void SceneLoad()
+    {
+        if (StartPanel.activeSelf)
         {
-            StartPanel.SetActive(true);
-            StageSelectPanel.SetActive(false);
+            StartPanel.SetActive(false);
+            StageSelectPanel.SetActive(true);
+            Debug.Log("스테이지 선택");
         }
         else
         {
-            StageSelectPanel.SetActive(true);
-            StartPanel.SetActive(false);
+            StageSelectPanel.SetActive(false);
+            StartPanel.SetActive(true);
+            Debug.Log("스타트");
         }
-    }
-
-    public void StageSelect(int SceneNum)
-    {
-        SceneManager.LoadScene(SceneNum);
     }
 }

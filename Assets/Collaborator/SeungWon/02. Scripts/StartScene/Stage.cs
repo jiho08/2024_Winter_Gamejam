@@ -30,8 +30,16 @@ public class Stage : MonoBehaviour
         }    
     }
 
-    public void EnterStage()
+    public void EnterStage_Fade()
     {
-        StageManager.instance.StageLoad(stageSO.stageNum);
+        StartSceneManager.instance.fade_Animator.gameObject.SetActive(true);
+        StartSceneManager.instance.fade_Animator.SetTrigger("Fade_ForeverDark");
+        Invoke("LoadScene", 2.5f);
+    }
+
+    private void LoadScene()
+    {
+        if (stageSO.state != state.Lock)
+            StageManager.instance.StageLoad(stageSO.stageNum);
     }
 }

@@ -24,11 +24,10 @@ public class StageManager : MonoBehaviour
             GameObject stage = Instantiate(stagesPrefabs, stagesTransform);
             stage.GetComponent<Stage>().stageSO = stageSo[i];
         }
-        gameObject.SetActive(false);
     }
 
     public void StageLoad(int sceneNum)
     {
-        SceneManager.LoadScene(sceneNum);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneNum);
     }
 }
