@@ -15,6 +15,7 @@ public class PoolManager : MonoBehaviour
 {
     public List<PoolObject> poolList = new List<PoolObject>();
 
+
     public static List<PoolObject> PoolList { get; set; }
     
     
@@ -50,4 +51,7 @@ public class PoolManager : MonoBehaviour
         PoolList[num].poolStack.Push(poolObj);
         poolObj.SetActive(false);
     }
+
+
+    
 }
