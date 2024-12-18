@@ -13,8 +13,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private LayerMask whatIsPlayer, whatIsObstacle;
 
     [SerializeField] private GameObject weapon;
-
-    // 무기 가져오기
+    
     [SerializeField] private WeaponDataSO _weaponData;
 
     private NavMeshAgent _agent;
@@ -55,18 +54,15 @@ public class Enemy : MonoBehaviour
     {
         if (CheckTargetInCheckRadius() && !CheckTargetInAttackRadius())
         {
-            Debug.Log("따라가기");
             StopCoroutine(Shoot());
-            _agent.SetDestination(target.position); // 따라가기
+            _agent.SetDestination(target.position);
         }
         else if (CheckTargetInCheckRadius() && CheckTargetInAttackRadius())
         {
-            Debug.Log("어택");
             StartCoroutine(Shoot());
         }
         else if (!CheckTargetInCheckRadius() && !CheckTargetInAttackRadius())
         {
-            Debug.Log("가만히");
             StopCoroutine(Shoot());
             _agent.SetDestination(transform.position);
         }
@@ -108,7 +104,6 @@ public class Enemy : MonoBehaviour
 
         if (collision != null)
         {
-            Debug.Log("어택 라디우스 안");
             var direction = collision.transform.position - transform.position;
             var angle = Vector2.Angle(direction.normalized, transform.right);
 
@@ -128,7 +123,7 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
-    private bool CheckTargetBetweenWall() // 벽 있으면 true
+    private bool CheckTargetBetweenWall()
     {
         var collision = Physics2D.OverlapCircle(transform.position, targetCheckRadius, whatIsPlayer);
 
@@ -161,7 +156,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            // 사망
+            Debug.Log("죽음");
             Destroy(gameObject);
         }
     }
