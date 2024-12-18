@@ -24,20 +24,20 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        //_agent.SetDestination(target.position);
+        _agent.SetDestination(target.position);
         
-        if (CheckTargetInCheckRadius() && !CheckTargetInAttackRadius())
-        {
-            _agent.SetDestination(target.position); // 따라가기
-        }
-        else if (CheckTargetInCheckRadius() && CheckTargetInAttackRadius())
-        {
-            // 어택
-        }
-        else if (!CheckTargetInCheckRadius())
-        {
-            _agent.SetDestination(transform.position);
-        }
+        // if (CheckTargetInCheckRadius() && !CheckTargetInAttackRadius())
+        // {
+        //     _agent.SetDestination(target.position); // 따라가기
+        // }
+        // else if (CheckTargetInCheckRadius() && CheckTargetInAttackRadius())
+        // {
+        //     // 어택
+        // }
+        // else if (!CheckTargetInCheckRadius())
+        // {
+        //     _agent.SetDestination(transform.position);
+        // }
     }
 
     private bool CheckTargetInCheckRadius()
