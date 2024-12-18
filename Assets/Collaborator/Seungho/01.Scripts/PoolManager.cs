@@ -35,15 +35,29 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public static void Spawn(int num, Vector2 position)
+    public static void Spawn(int num, Transform owner)
     {
-        if (PoolList[num].poolStack.Count != 0)
+        switch (num)
         {
-            var pool = PoolList[num].poolStack.Pop();
-            pool.transform.position = position;
-            pool.transform.rotation = Quaternion.identity;
-            pool.SetActive(true);
+            case 0:
+                if (PoolList[num].poolStack.Count != 0)
+                {
+                    var bulletpool = PoolList[num].poolStack.Pop();
+                    bulletpool.transform.position = owner.position;
+                    bulletpool.transform.rotation = Quaternion.identity;
+                    bulletpool.GetComponent<Projectile>().owner = owner;
+                    bulletpool.SetActive(true);
+                }
+                break;
+
+            default:
+                var pool = PoolList[num].poolStack.Pop();
+                pool.transform.position = owner.position;
+                pool.transform.rotation = Quaternion.identity;
+                pool.SetActive(true);
+                break;
         }
+        
     }
 
     public static void Return(int num, GameObject poolObj)

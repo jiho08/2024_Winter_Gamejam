@@ -26,6 +26,6 @@ public class Weapon : MonoBehaviour
     }
     private void Shoot()
     {
-        PoolManager.Spawn(0, transform.position);
+        PoolManager.Spawn(0, transform);
     }
 }
