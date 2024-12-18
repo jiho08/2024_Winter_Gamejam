@@ -12,17 +12,25 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private LayerMask whatIsPlayer, whatIsObstacle;
 
+    [SerializeField] private GameObject weapon;
+
     // 무기 가져오기
-    [SerializeField] private WeaponDataSO _weapon;
+    [SerializeField] private WeaponDataSO _weaponData;
 
     private NavMeshAgent _agent;
+    private SpriteRenderer _renderer;
 
     private readonly float _checkTimer = 0.3f;
     private float _lastCheckTime;
 
-    private void Start()
+    private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _renderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void Start()
+    {
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
     }
@@ -30,11 +38,14 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
         LookAtTarget();
+        
+        _renderer.enabled = !CheckTargetBetweenWall();
+        weapon.SetActive(!CheckTargetBetweenWall());
+        
         if (_lastCheckTime + _checkTimer < Time.time)
         {
             _lastCheckTime = Time.time;
             CheckTarget();
-            
         }
 
         //_agent.SetDestination(target.position);
@@ -63,10 +74,9 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Shoot()
     {
-        
-        PoolManager.Spawn(0, transform.GetChild(0));
+        PoolManager.Spawn(0, weapon.transform);
 
-        yield return new WaitForSeconds(_weapon.attackDelay);
+        yield return new WaitForSeconds(_weaponData.attackDelay);
     }
 
     private bool CheckTargetInCheckRadius()
@@ -75,11 +85,11 @@ public class Enemy : MonoBehaviour
 
         if (collision != null)
         {
-            // var direction = collision.transform.position - transform.position;
-            // var angle = Vector2.Angle(direction.normalized, transform.right);
-            //
-            // if (angle >= targetCheckAngle * 0.5f)
-            //     return false;
+            var direction = collision.transform.position - transform.position;
+            var angle = Vector2.Angle(direction.normalized, transform.right);
+
+            if (angle >= targetCheckAngle * 0.5f)
+                return false;
 
             if (collision.TryGetComponent(out PlayerMove player))
             {
@@ -100,15 +110,15 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("어택 라디우스 안");
             var direction = collision.transform.position - transform.position;
-            // var angle = Vector2.Angle(direction.normalized, transform.right);
-            //
-            // if (angle >= attackAngle * 0.5f)
-            //     return false;
+            var angle = Vector2.Angle(direction.normalized, transform.right);
 
-            // var hit = Physics2D.Raycast(transform.position, direction.normalized,
-            //     direction.magnitude, whatIsObstacle);
+            if (angle >= attackAngle * 0.5f)
+                return false;
 
-            if (collision.TryGetComponent(out PlayerMove player))
+            var hit = Physics2D.Raycast(transform.position, direction.normalized,
+                direction.magnitude, whatIsObstacle);
+
+            if (hit.collider == null && collision.TryGetComponent(out PlayerMove player))
             {
                 target = player.transform;
                 return true;
@@ -117,8 +127,26 @@ public class Enemy : MonoBehaviour
 
         return false;
     }
-    
-    public void LookAtTarget()
+
+    private bool CheckTargetBetweenWall() // 벽 있으면 true
+    {
+        var collision = Physics2D.OverlapCircle(transform.position, targetCheckRadius, whatIsPlayer);
+
+        if (collision != null)
+        {
+            var direction = collision.transform.position - transform.position;
+
+            var hit = Physics2D.Raycast(transform.position, direction.normalized,
+                direction.magnitude, whatIsObstacle);
+
+            if (hit.collider == null && collision.CompareTag("Player"))
+                return false;
+        }
+
+        return true;
+    }
+
+    private void LookAtTarget()
     {
         Vector2 targetPos;
         float angle;
