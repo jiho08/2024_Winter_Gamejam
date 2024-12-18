@@ -590,7 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolList:
   - poolObject: {fileID: 8985867480417580802, guid: 87bfdb4d62ba1e94681596e2536f8062, type: 3}
-    poolCount: 10
+    poolCount: 100
 --- !u!4 &424689092
 Transform:
   m_ObjectHideFlags: 0
@@ -838,6 +838,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1207831433508233341, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1708904523668232456, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122785698376048505, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3555519383346142271, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3756044761148086747, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 4252702450805496304, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 5019417768311450103, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 6568853954927967390, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -881,6 +909,10 @@ PrefabInstance:
     - target: {fileID: 6686836998645501490, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
       propertyPath: m_Name
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 6966976530397889935, guid: 932fbef66b6f1bd44b7c4dd17da3af12, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

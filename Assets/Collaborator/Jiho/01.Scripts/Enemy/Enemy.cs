@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
         {
             _lastCheckTime = Time.time;
             CheckTarget();
+            LookAtTarget();
         }
 
         //_agent.SetDestination(target.position);
@@ -113,6 +114,17 @@ public class Enemy : MonoBehaviour
         }
 
         return false;
+    }
+    
+    public void LookAtTarget()
+    {
+        Vector2 targetPos;
+        float angle;
+
+        targetPos.x = target.transform.position.x - transform.position.x;
+        targetPos.y = target.transform.position.y - transform.position.y;
+        angle = Mathf.Atan2(targetPos.y, targetPos.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
     private void OnCollisionEnter2D(Collision2D other)
