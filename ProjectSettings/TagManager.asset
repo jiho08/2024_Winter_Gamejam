@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -11,11 +11,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - Bullet
+  - Interaction
+  - Trap
   - 
   - 
   - 
@@ -41,3 +41,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Weapon
+    uniqueID: 2683511763
+    locked: 0
+  - name: Object
+    uniqueID: 3323855125
+    locked: 0
+  - name: Unit
+    uniqueID: 1493354169
+    locked: 0
+  - name: Wall
+    uniqueID: 1539053805
+    locked: 0
+  m_RenderingLayers:
+  - Default
