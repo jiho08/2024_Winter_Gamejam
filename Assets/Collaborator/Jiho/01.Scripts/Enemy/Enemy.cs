@@ -75,11 +75,11 @@ public class Enemy : MonoBehaviour
 
         if (collision != null)
         {
-            // var direction = collision.transform.position - transform.position;
-            // var angle = Vector2.Angle(direction.normalized, transform.right);
-            //
-            // if (angle >= targetCheckAngle * 0.5f)
-            //     return false;
+            var direction = collision.transform.position - transform.position;
+            var angle = Vector2.Angle(direction.normalized, transform.right);
+            
+            if (angle >= targetCheckAngle * 0.5f)
+                return false;
 
             if (collision.TryGetComponent(out PlayerMove player))
             {
@@ -100,15 +100,15 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("어택 라디우스 안");
             var direction = collision.transform.position - transform.position;
-            // var angle = Vector2.Angle(direction.normalized, transform.right);
-            //
-            // if (angle >= attackAngle * 0.5f)
-            //     return false;
+            var angle = Vector2.Angle(direction.normalized, transform.right);
+            
+            if (angle >= attackAngle * 0.5f)
+                return false;
 
-            // var hit = Physics2D.Raycast(transform.position, direction.normalized,
-            //     direction.magnitude, whatIsObstacle);
+            var hit = Physics2D.Raycast(transform.position, direction.normalized,
+                direction.magnitude, whatIsObstacle);
 
-            if (collision.TryGetComponent(out PlayerMove player))
+            if (hit.collider == null && collision.TryGetComponent(out PlayerMove player))
             {
                 target = player.transform;
                 return true;
