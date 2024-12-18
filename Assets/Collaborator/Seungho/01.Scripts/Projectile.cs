@@ -26,13 +26,15 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            PoolManager.Return(0, gameObject);
-        }
-        else if (collision.gameObject.CompareTag("Player") && !isPenetration)
-        {
-            PoolManager.Return(0, gameObject);
-        }
+        PoolManager.Return(0, gameObject);
+        //if (collision.gameObject.CompareTag("Wall"))
+        //{
+        //    PoolManager.Return(0, gameObject);
+        //}
+        //else if (collision.gameObject.CompareTag("Player") && !isPenetration)
+        //{
+        //    PoolManager.Return(0, gameObject);
+        //}
+
     }
 }

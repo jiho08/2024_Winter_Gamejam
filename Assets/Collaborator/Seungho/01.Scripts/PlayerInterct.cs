@@ -10,11 +10,13 @@ public class PlayerInterct : MonoBehaviour
         weaponCompo = GetComponentInChildren<Weapon>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Weapon"))
+        if (collision.gameObject.CompareTag("Weapon"))
         {
-            //weaponCompo.ChangeWeapon();
+            weaponCompo.WeaponChange(collision.gameObject.GetComponent<DropWeapon>().weapon);
+            Debug.Log($"{collision.gameObject.GetComponent<DropWeapon>().weapon.weaponName} ภๅย๘วิ");
+            Destroy(collision.gameObject);
         }
     }
 }
