@@ -10,9 +10,24 @@ public class PlayerDeadCheck : MonoBehaviour
 {
     public ParticleSystem deadParticle;
     public GameObject noise;
+    public Volume volume;
     public PlayerMove player;
     public bool isDead = false;
     Coroutine coroutine = null;
+
+    private void Awake()
+    {
+    
+    }
+    private void Start()
+    {
+        if(volume.profile.TryGet<LensDistortion>(out var distortion))
+        {
+            
+            StartCoroutine(StartEffect(distortion));
+        }
+
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -46,6 +61,18 @@ public class PlayerDeadCheck : MonoBehaviour
 
         
         SceneManager.LoadScene("PlayerTestScene");
+    }
+
+    IEnumerator StartEffect(LensDistortion lensDistortion)
+    {
+        float time = 0;
+        while (time < 1)
+        {
+            time += Time.deltaTime*2;
+            lensDistortion.intensity.value = Mathf.Lerp(1, 0.38f, time);
+            Debug.Log("b");
+            yield return null;
+        }
     }
 
 
