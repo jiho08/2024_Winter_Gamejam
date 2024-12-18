@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,15 +13,22 @@ public class PoolObject
 
 public class PoolManager : MonoBehaviour
 {
-    public static List<PoolObject> PoolList = new List<PoolObject>();
+    public List<PoolObject> poolList = new List<PoolObject>();
+
+    public static List<PoolObject> PoolList { get; set; }
+    
     
     private void Awake()
     {
+        PoolList = poolList;
+
         for (int i = 0; i < PoolList.Count; i++)
         {
             for(int _ = 0; _ < PoolList[i].poolCount; _++)
             {
-                PoolList[i].poolStack.Push(Instantiate(PoolList[i].poolObject, transform));
+                var temp = Instantiate(PoolList[i].poolObject, transform);
+                PoolList[i].poolStack.Push(temp);
+                temp.SetActive(false);
             }
             
         }
