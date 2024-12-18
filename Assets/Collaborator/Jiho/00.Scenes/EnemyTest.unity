@@ -254,6 +254,7 @@ MonoBehaviour:
   whatIsObstacle:
     serializedVersion: 2
     m_Bits: 0
+  _weapon: {fileID: 0}
 --- !u!58 &215240914
 CircleCollider2D:
   m_ObjectHideFlags: 0
