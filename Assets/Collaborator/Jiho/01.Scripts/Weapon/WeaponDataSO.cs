@@ -6,4 +6,6 @@ public class WeaponDataSO : ScriptableObject
     public float attackDelay;
     public float attackRange;
     public Sprite weaponImage;
+    public GameObject projectilePrefab;
+    public int projectileCount;
 }
