@@ -67,11 +67,11 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Noise());
         yield return new WaitForSeconds(0.2f);
-        player.inputAction.Player.Enable();
-        StageUI.ClearStage(SceneManager.sceneCount);
-        if(SceneManager.sceneCount != SceneManager.sceneCountInBuildSettings)
+        
+        StageUI.ClearStage(StageUI._currentStage);
+        if(StageUI._currentStage != SceneManager.sceneCountInBuildSettings)
         {
-            SceneManager.LoadScene(SceneManager.sceneCount + 1);
+            SceneManager.LoadScene(++StageUI._currentStage);
         }
         else
         {
