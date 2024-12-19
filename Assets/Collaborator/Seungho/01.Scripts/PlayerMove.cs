@@ -1,3 +1,4 @@
+using Hellmade.Sound;
 using Unity.Mathematics;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
@@ -60,7 +61,6 @@ public class PlayerMove : MonoBehaviour
         if(inputVector == Vector2.zero) 
         {
             Time.timeScale = 0.1f;
-            
         }
         else
         {

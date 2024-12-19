@@ -1,10 +1,12 @@
 using System;
+using Hellmade.Sound;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponDataSO weaponData;
-
+    [SerializeField] private AudioClip shootSound, noSound;
+    
     private PoolManager poolManager;
     private float _currentDelay;
     private int _ammo;
@@ -30,6 +32,7 @@ public class Weapon : MonoBehaviour
             if (_currentDelay < weaponData.attackDelay || _ammo <= 0)
             {
                 // 안된다는 효과음 재생
+                EazySoundManager.PlaySound(noSound);
                 return;
             }
 
@@ -40,6 +43,7 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
+        EazySoundManager.PlaySound(shootSound);
         _currentDelay = 0;
         --_ammo;
         poolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount);
