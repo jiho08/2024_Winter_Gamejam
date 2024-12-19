@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
         if(attackTime >= weaponData.attackDelay)
         {
             EazySoundManager.PlaySound(shootSound);
-            poolManager.ProjectileSpawn(weapon.transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount);
+            poolManager.ProjectileSpawn(weapon.transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount, shootSound);
             attackTime = 0;
         }
             
