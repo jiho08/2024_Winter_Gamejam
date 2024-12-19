@@ -52,7 +52,7 @@ public class PlayerDeadCheck : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Noise());
-
+        yield return new WaitForSeconds(1f);
         isDead = false;
         SceneManager.LoadScene(SceneManager.sceneCount);
     }
@@ -64,7 +64,7 @@ public class PlayerDeadCheck : MonoBehaviour
 
         Time.timeScale = 1.0f;
         noise.SetActive(true);
-        yield return new WaitForSeconds(1f);
+        yield return null;
     }
 
 
