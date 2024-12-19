@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        dropWeapon.weapon = weaponData;
+        
         cam = FindAnyObjectByType<Cam>();
         _agent = GetComponent<NavMeshAgent>();
         poolManager = FindAnyObjectByType<PoolManager>();
@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         attackRadius = weaponData.attackRange;
@@ -172,7 +173,9 @@ public class Enemy : MonoBehaviour
     private void Dead()
     {
         cam.Shake();
-        Instantiate(dropWeapon, transform.position, Quaternion.identity);
+        dropWeapon.weapon = weaponData;
+        DropWeapon drop = Instantiate(dropWeapon, transform.position, Quaternion.identity);
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
