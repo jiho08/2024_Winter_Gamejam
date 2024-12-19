@@ -49,9 +49,14 @@ public class TitleUI : MonoBehaviour
         Application.Quit();
     }
 
-    public void BackButton()
+    public void SettingBackButton()
     {
         (cameraList[0].Priority, cameraList[1].Priority) = (cameraList[1].Priority, cameraList[0].Priority);
+    }
+    
+    public void StageBackButton()
+    {
+        (cameraList[0].Priority, cameraList[2].Priority) = (cameraList[2].Priority, cameraList[0].Priority);
     }
 
     public void MasterSliderValueChanged(float value)
