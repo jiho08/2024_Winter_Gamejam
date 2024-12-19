@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SniperRifle
   m_EditorClassIdentifier: 
   weaponName: SniperRifle
-  dropWeaponImage: {fileID: -7627819191866995224, guid: af627a7cfaf97e54ea33524ff33625a0, type: 3}
+  dropWeaponImage: {fileID: -3198873993204886404, guid: ece5e7c3dfe0e2f4981e2210567a544b, type: 3}
   weaponImage: {fileID: -2428294156404325925, guid: 5ce35aa951dba4b4ea76eeafd6dac3a8, type: 3}
   projectilePrefab: {fileID: 8985867480417580802, guid: 87bfdb4d62ba1e94681596e2536f8062, type: 3}
   projectileCount: 1
-  ammo: 1
-  bulletSpeed: 35
+  ammo: 2
+  bulletSpeed: 40
   attackDelay: 1.5
   attackRange: 15
   isPenetration: 1
