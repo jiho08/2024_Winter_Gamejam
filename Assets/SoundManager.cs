@@ -1,5 +1,6 @@
 using Hellmade.Sound;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,18 +9,27 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    public List<SoundData> soundControls = new List<SoundData>();
+    public SoundData[] soundControls;
 
     [SerializeField] private Slider soundSizeSlider, musicSizeSlider;
-    private float soundSize, musicSize;
+    public float soundSize, musicSize = 1f;
 
     private void Awake()
     {
-        if(Instance == null)
+        if (Instance == null)
         {
             Instance = this;
         }
         DontDestroyOnLoad(gameObject);
+
+        for(int i = 0; i < soundControls.Length; i++)
+        {
+            if (soundControls[i].audio == null)
+            {
+                int audioID = EazySoundManager.PlayMusic(soundControls[i].audioclip, soundControls[i].soundType == SoundType.SFX ? soundSize : musicSize, true, false);
+                soundControls[i].audio = EazySoundManager.GetAudio(audioID);
+            }
+        }
     }
 
     private void Update()
@@ -30,10 +40,10 @@ public class SoundManager : MonoBehaviour
             musicSize = musicSizeSlider.value;
     }
 
-    public void SoundPlay(string Id)
+    public void SFXPlay(string name)
     {
-        SoundData currentSound = soundControls.Find(s => s.Id == Id);
-        if (soundControls.Exists(s => s.Id == Id) && currentSound.soundType == SoundType.SFX)
+        SoundData currentSound = soundControls.ToList().Find(s => s.name == name);
+        if (soundControls.ToList().Exists(s => s.name == name) && currentSound.soundType == SoundType.SFX)
         {
             currentSound.audio.Play(soundSize);
         }
@@ -41,10 +51,10 @@ public class SoundManager : MonoBehaviour
             Debug.Log("사운드를 찾을 수 없음");
     }
 
-    public void MusicStart(string Id)
+    public void BGMPlay(string name)
     {
-        SoundData currentSound = soundControls.Find(s => s.Id == Id);
-        if (soundControls.Exists(s => s.Id == Id) && currentSound.soundType == SoundType.BGM)
+        SoundData currentSound = soundControls.ToList().Find(s => s.name == name);
+        if (soundControls.ToList().Exists(s => s.name == name) && currentSound.soundType == SoundType.BGM)
         {
             foreach(var item in soundControls)
                 if(item.soundType == SoundType.BGM)
@@ -60,7 +70,7 @@ public class SoundManager : MonoBehaviour
 [System.Serializable]
 public struct SoundData
 {
-    public string Id;
+    public string name;
     public AudioClip audioclip;
     public Audio audio;
     public SoundType soundType;

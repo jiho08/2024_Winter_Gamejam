@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using UnityEngine;
+using Hellmade.Sound;
 
 public class Door : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Door : MonoBehaviour
     [SerializeField] private Transform _moveTargetPos;
 
     public float openingDuration;
+    public AudioClip doorOpenSound;
 
     private void Update()
     {
@@ -25,10 +27,12 @@ public class Door : MonoBehaviour
             }
         }
         Opening();
+        
     }
 
     private void Opening()
     {
+        EazySoundManager.PlaySound(doorOpenSound);
         gameObject.transform.DOMove(_moveTargetPos.position, openingDuration);
     }
 }
