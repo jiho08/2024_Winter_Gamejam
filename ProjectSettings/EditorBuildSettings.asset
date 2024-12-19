@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Collaborator/Jiho/00.Scenes/TitleTest.unity
     guid: 9c8629b2035b3e249b4fe3befa18b0a7
   - enabled: 1
-    path: Assets/Collaborator/Seungho/PlayerTestScene.unity
+    path: Assets/Collaborator/Seungho/Stage1.unity
     guid: a7f11e07d6923ec46b4f7333a464b98b
+  - enabled: 1
+    path: Assets/Collaborator/SeungWon/Stages/Stage2/Stage2.unity
+    guid: e71d84683f4268541b81ceecf928394a
+  - enabled: 1
+    path: Assets/Collaborator/SeungWon/Stages/Stage3/Stage3.unity
+    guid: 6a6d9288fcb3e2848a6199108b3c9904
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -68,8 +68,18 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         player.inputAction.Player.Enable();
         StageUI.ClearStage(SceneManager.sceneCount);
+        if(SceneManager.sceneCount != SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(SceneManager.sceneCount + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
 
-        
+        }
+
+
+
     }
 
     public IEnumerator Noise()
