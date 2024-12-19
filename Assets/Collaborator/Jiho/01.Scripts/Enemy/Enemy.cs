@@ -174,14 +174,16 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
-    private void Dead()
+    public void Dead()
     {
         --GameManager.enemyCount;
         EazySoundManager.PlaySound(deadSound);
         cam.Shake();
         dropWeapon.weapon = weaponData;
         DropWeapon drop = Instantiate(dropWeapon, transform.position, Quaternion.identity);
-        
+        Instantiate(deadParticle, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -189,9 +191,10 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             
-            Destroy(gameObject);
+            
             Dead();
-            Instantiate(deadParticle, transform.position, Quaternion.identity);
+            
+
         }
     }
 

@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public Transform enemys;
     [SerializeField] private GameObject noise;
     public static float enemyCount;
+    public PlayerMove player;
+
+    Coroutine coroutine;
 
     public static GameManager instance;
 
@@ -22,6 +25,7 @@ public class GameManager : MonoBehaviour
         }
         timer = 0;
         text = FindAnyObjectByType<TextAction>();
+        player = FindAnyObjectByType<PlayerMove>();
         enemyCount = enemys.GetComponentsInChildren<Enemy>().Length;
     }
     public void Start()
@@ -34,8 +38,9 @@ public class GameManager : MonoBehaviour
         timer += Time.deltaTime;
         if(mission == 0 && enemyCount <= 0)
         {
-            Debug.Log("a");
-            StageClear("쫌 치네ㅋㅋ");
+            
+            if(coroutine == null )
+                coroutine = StartCoroutine(StageClear("클리어"));
         }
     }
 
@@ -56,10 +61,12 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator StageClear(string message)
     {
+        player.inputAction.Player.Disable();
         text.ShowText(message);
-        yield return new WaitForSecondsRealtime(1f);
+        yield return new WaitForSeconds(0.5f);
         StartCoroutine(Noise());
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSeconds(0.2f);
+        player.inputAction.Player.Enable();
         StageUI.ClearStage(SceneManager.sceneCount);
 
         

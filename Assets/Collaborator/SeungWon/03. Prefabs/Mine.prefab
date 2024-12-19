@@ -143,6 +143,7 @@ MonoBehaviour:
   causeExplosivelayer:
     serializedVersion: 2
     m_Bits: 192
+  particle: {fileID: 4241269503936476207, guid: 75e7a9479acad424f9a93be3f7b7f4fd, type: 3}
   explosiveSound: {fileID: 8300000, guid: c401d00c96b512e488d2e3bf5d111509, type: 3}
 --- !u!50 &7885388675829985715
 Rigidbody2D:

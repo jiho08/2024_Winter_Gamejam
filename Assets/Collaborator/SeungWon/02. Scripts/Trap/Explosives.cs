@@ -8,6 +8,7 @@ public class Explosives : MonoBehaviour
 {
     public LayerMask causeExplosivelayer;
     public Action<GameObject, GameObject> OnExplosive;
+    public GameObject particle;
 
     public AudioClip explosiveSound;
 
@@ -16,6 +17,7 @@ public class Explosives : MonoBehaviour
         if (((1 << collision.gameObject.layer) & causeExplosivelayer) != 0)
         {
             OnExplosive?.Invoke(gameObject, collision.gameObject);
+            Instantiate(particle, transform.position, Quaternion.identity) ;
             EazySoundManager.PlaySound(explosiveSound);
         }
     }
