@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0079e726734b881438fcbd697b2f262f
+guid: 8c31f43f8e6fe354cb15084aef1c9478
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7631219046128225658
-    second: ShotGun_0
+      213: -7307453944819525389
+    second: AR-removebg-preview (1)_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShotGun_0
+      name: AR-removebg-preview (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
-        width: 221
-        height: 45
+        y: 0
+        width: 180
+        height: 59
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7d0baf5a4987e960800000000000000
-      internalID: 7631219046128225658
+      spriteID: 3f8518e8a55b69a90800000000000000
+      internalID: -7307453944819525389
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 498f32b0fd8f51344964999318ae7386
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ShotGun_0: 7631219046128225658
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
