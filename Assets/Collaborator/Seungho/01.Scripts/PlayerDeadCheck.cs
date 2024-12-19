@@ -43,7 +43,7 @@ public class PlayerDeadCheck : MonoBehaviour
             GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
             transform.GetChild(0).gameObject.SetActive(false);
             Instantiate(deadParticle, player.transform.position, Quaternion.identity);
-            
+            Time.timeScale = 0.1f;
             coroutine = StartCoroutine(Dead());
         }
     }
@@ -57,7 +57,7 @@ public class PlayerDeadCheck : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         isDead = false;
-        SceneManager.LoadScene("PlayerTestScene");
+        SceneManager.LoadScene(SceneManager.sceneCount);
     }
 
     
