@@ -4,6 +4,7 @@ using UnityEngine;
 public class WeaponDataSO : ScriptableObject
 {
     public string weaponName;
+    public Sprite dropWeaponImage;
     public Sprite weaponImage;
     
     public GameObject projectilePrefab;
