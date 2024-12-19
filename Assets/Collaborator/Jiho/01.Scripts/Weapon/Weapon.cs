@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour
         _currentDelay = 0;
         --_ammo;
         weaponUI.GetCurrentAmmo(_ammo);
-        poolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount);
+        poolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount, shootSound);
     }
 
     // 웨폰 체인지 됐을 때 어택 딜레이, 탄창 초기화 시켜주기

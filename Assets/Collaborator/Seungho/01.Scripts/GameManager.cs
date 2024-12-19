@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static float timer;
     public Transform enemys;
     [SerializeField] private GameObject noise;
+    [SerializeField] private GameObject UI;
     public static float enemyCount;
     public PlayerMove player;
 
@@ -68,8 +69,18 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         player.inputAction.Player.Enable();
         StageUI.ClearStage(SceneManager.sceneCount);
+        if(SceneManager.sceneCount != SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(SceneManager.sceneCount + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
 
-        
+        }
+
+
+
     }
 
     public IEnumerator Noise()
