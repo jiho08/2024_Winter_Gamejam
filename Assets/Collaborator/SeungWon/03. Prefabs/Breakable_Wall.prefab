@@ -105,7 +105,7 @@ MonoBehaviour:
   canBreakObjLayer:
     serializedVersion: 2
     m_Bits: 256
-  switchSound: {fileID: 8300000, guid: 0c0af68241e3b9d4ea242ea46defabc3, type: 3}
+  switchSound: {fileID: 8300000, guid: 2c6d07ea2a2e3b944817943da14ba598, type: 3}
 --- !u!61 &2689760158794934651
 BoxCollider2D:
   m_ObjectHideFlags: 0

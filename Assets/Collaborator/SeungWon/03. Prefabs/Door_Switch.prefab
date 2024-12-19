@@ -108,7 +108,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  switchSound: {fileID: 8300000, guid: e82775e1804d8ce48b5cc3b3a875e33a, type: 3}
+  switchSound: {fileID: 8300000, guid: 76ba0c72a091dde4884a09fc793ea39f, type: 3}
 --- !u!61 &1047357228541739566
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -18,13 +18,12 @@ public class ExplosiveRange : MonoBehaviour
     {
         exploreRangeCollider = GetComponent<CircleCollider2D>();
 
-        explosives.OnExplore += Explore;
+        explosives.OnExplosive += Explosive;
     }
 
-    public void Explore(GameObject baseTrap, GameObject causedObj)
+    public void Explosive(GameObject baseTrap, GameObject causedObj)
     {
-        Debug.Log(InRangeObject.Count);
-        for (int i = 0; i < InRangeObject.Count + 1; i++)
+        for (int i = 0; i < InRangeObject.Count; i++)
             Destroy(InRangeObject[0]);
 
         if(((1 << causedObj.layer) & detectiveLayer) != 0)
@@ -59,6 +58,6 @@ public class ExplosiveRange : MonoBehaviour
 
     private void OnDisable()
     {
-        explosives.OnExplore -= Explore;
+        explosives.OnExplosive -= Explosive;
     }
 }
