@@ -2114,6 +2114,8 @@ MonoBehaviour:
   _leftButton: {fileID: 21824726}
   _rightButton: {fileID: 1342926257}
   _stageText: {fileID: 327243217}
+  clickSound: {fileID: 8300000, guid: 53c9e231694fb4bf4b9f7bbf6d3bc5a7, type: 3}
+  noSound: {fileID: 8300000, guid: c90b0b3f30bc44a478ff0b02c4bf0e98, type: 3}
 --- !u!1 &361222285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3287,6 +3289,7 @@ MonoBehaviour:
   - {fileID: 55862939}
   - {fileID: 1889738837}
   screenDropdown: {fileID: 1421720465}
+  clickSound: {fileID: 8300000, guid: 53c9e231694fb4bf4b9f7bbf6d3bc5a7, type: 3}
 --- !u!4 &777588191
 Transform:
   m_ObjectHideFlags: 0

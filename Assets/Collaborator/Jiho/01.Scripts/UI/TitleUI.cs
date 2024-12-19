@@ -12,6 +12,7 @@ public class TitleUI : MonoBehaviour
     [SerializeField] private List<CinemachineCamera> cameraList = new();
     [SerializeField] private List<Slider> sliderList = new();
     [SerializeField] private TMP_Dropdown screenDropdown;
+    [SerializeField] private AudioClip clickSound;
 
     private void Start()
     {
@@ -36,26 +37,31 @@ public class TitleUI : MonoBehaviour
 
     public void StartButton()
     {
+        EazySoundManager.PlayUISound(clickSound);
         (cameraList[0].Priority, cameraList[2].Priority) = (cameraList[2].Priority, cameraList[0].Priority);
     }
 
     public void SettingButton()
     {
+        EazySoundManager.PlayUISound(clickSound);
         (cameraList[0].Priority, cameraList[1].Priority) = (cameraList[1].Priority, cameraList[0].Priority);
     }
 
     public void ExitButton()
     {
+        EazySoundManager.PlayUISound(clickSound);
         Application.Quit();
     }
 
     public void SettingBackButton()
     {
+        EazySoundManager.PlayUISound(clickSound);
         (cameraList[0].Priority, cameraList[1].Priority) = (cameraList[1].Priority, cameraList[0].Priority);
     }
     
     public void StageBackButton()
     {
+        EazySoundManager.PlayUISound(clickSound);
         (cameraList[0].Priority, cameraList[2].Priority) = (cameraList[2].Priority, cameraList[0].Priority);
     }
 
