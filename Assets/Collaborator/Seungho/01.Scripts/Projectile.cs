@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
         tr.Clear();
         rb.linearVelocity = Vector3.zero;
         
-        rb.AddForce(transform.right*speed, ForceMode2D.Impulse);
+        rb.AddForce(transform.right * speed, ForceMode2D.Impulse);
        
     }
 
