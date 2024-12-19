@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Collaborator/Jiho/00.Scenes/TitleTest.unity
     guid: 9c8629b2035b3e249b4fe3befa18b0a7
   - enabled: 1
-    path: Assets/Collaborator/Seungho/Stage1.unity
-    guid: a7f11e07d6923ec46b4f7333a464b98b
+    path: Assets/Collaborator/Jiho/00.Scenes/GameTest99.unity
+    guid: 458287f0e4ecf1d47a068516bcecc902
   - enabled: 1
     path: Assets/Collaborator/SeungWon/Stages/Stage2/Stage2.unity
     guid: e71d84683f4268541b81ceecf928394a

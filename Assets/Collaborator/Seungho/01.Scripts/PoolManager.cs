@@ -1,3 +1,4 @@
+using Hellmade.Sound;
 using NUnit.Framework;
 using System;
 using System.Collections;
@@ -66,7 +67,7 @@ public class PoolManager : MonoBehaviour
     }
 
     public void ProjectileSpawn(Transform owner, float bulletSpeed, bool isPenetration,
-        bool isDiffuse, bool isBurst, int bulletCount)
+        bool isDiffuse, bool isBurst, int bulletCount, AudioClip clip)
     {
         if (PoolList[0].poolStack.Count != 0)
         {
@@ -85,7 +86,7 @@ public class PoolManager : MonoBehaviour
                     bullet.isPenetration = isPenetration;
                     bullet.isDiffuse = isDiffuse;
 
-
+                    EazySoundManager.PlaySound(clip);
 
                     bulletpool.SetActive(true);
                 }
@@ -93,7 +94,7 @@ public class PoolManager : MonoBehaviour
             else if (isBurst)
             {
                 
-                coroutine = StartCoroutine(Burst(owner, bulletSpeed, isPenetration, isDiffuse, bulletCount));
+                coroutine = StartCoroutine(Burst(owner, bulletSpeed, isPenetration, isDiffuse, bulletCount, clip));
             }
             else
             {
@@ -107,6 +108,7 @@ public class PoolManager : MonoBehaviour
                 bullet.isPenetration = isPenetration;
                 bullet.isDiffuse = isDiffuse;
 
+                EazySoundManager.PlaySound(clip);
 
 
                 bulletpool.SetActive(true);
@@ -126,7 +128,7 @@ public class PoolManager : MonoBehaviour
         poolObj.SetActive(false);
     }
 
-    public IEnumerator Burst(Transform owner, float bulletSpeed, bool isPenetration, bool isDiffuse, int bulletCount)
+    public IEnumerator Burst(Transform owner, float bulletSpeed, bool isPenetration, bool isDiffuse, int bulletCount, AudioClip clip)
     {
 
         for(int i = 0; i < bulletCount; i++)
@@ -143,6 +145,8 @@ public class PoolManager : MonoBehaviour
                 bullet.speed = bulletSpeed;
                 bullet.isPenetration = isPenetration;
                 bullet.isDiffuse = isDiffuse;
+
+                EazySoundManager.PlaySound(clip);
 
                 bulletpool.SetActive(true);
             }
