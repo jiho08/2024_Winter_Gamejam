@@ -5,6 +5,30 @@ TextureImporter:
   - first:
       213: -1066304613686493471
     second: cross_aim2_0
+  - first:
+      213: -6529734500467837096
+    second: cross_aim2_1
+  - first:
+      213: -2184160085242332806
+    second: cross_aim2_2
+  - first:
+      213: -7639284348149350624
+    second: cross_aim2_3
+  - first:
+      213: 1341126459193035316
+    second: cross_aim2_4
+  - first:
+      213: 6310665279242963016
+    second: cross_aim2_5
+  - first:
+      213: 2174926739412427531
+    second: cross_aim2_6
+  - first:
+      213: -5390251503536707467
+    second: cross_aim2_7
+  - first:
+      213: 1111255584918946908
+    second: cross_aim2_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,10 +127,10 @@ TextureImporter:
       name: cross_aim2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 820
-        height: 540
+        x: 44
+        y: 302
+        width: 194
+        height: 194
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,6 +141,182 @@ TextureImporter:
       bones: []
       spriteID: 1ee3bd67a99b331f0800000000000000
       internalID: -1066304613686493471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cross_aim2_1
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 334
+        width: 25
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 857700e5119b165a0800000000000000
+      internalID: -6529734500467837096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cross_aim2_2
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 302
+        width: 194
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a793b8289fd40b1e0800000000000000
+      internalID: -2184160085242332806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cross_aim2_3
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 259
+        width: 197
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02f3b5a2c5fcbf590800000000000000
+      internalID: -7639284348149350624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cross_aim2_4
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 238
+        width: 67
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43a0417b863ac9210800000000000000
+      internalID: 1341126459193035316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cross_aim2_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 259
+        width: 197
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8480ba9d2acf39750800000000000000
+      internalID: 6310665279242963016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cross_aim2_6
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 48
+        width: 194
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b032d23a854ee2e10800000000000000
+      internalID: 2174926739412427531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cross_aim2_7
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 13
+        width: 26
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 578eda9f0daf135b0800000000000000
+      internalID: -5390251503536707467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: cross_aim2_8
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 48
+        width: 194
+        height: 194
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5443c91119fb6f00800000000000000
+      internalID: 1111255584918946908
       vertices: []
       indices: 
       edges: []

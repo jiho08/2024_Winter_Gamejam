@@ -103,10 +103,10 @@ TextureImporter:
       name: cross_aim3_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 880
-        height: 655
+        x: 36
+        y: 39
+        width: 576
+        height: 576
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
