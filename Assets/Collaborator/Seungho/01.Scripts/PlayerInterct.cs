@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class PlayerInterct : MonoBehaviour
 {
     [SerializeField] private AudioClip weaponInteractSound;
+    [SerializeField] private WeaponUI weaponUI;
     
     Weapon weaponCompo;
 
@@ -18,7 +19,11 @@ public class PlayerInterct : MonoBehaviour
         if (collision.gameObject.CompareTag("Weapon"))
         {
             EazySoundManager.PlaySound(weaponInteractSound);
-            weaponCompo.WeaponChange(collision.gameObject.GetComponent<DropWeapon>().weapon);
+
+            var data = collision.gameObject.GetComponent<DropWeapon>().weapon;
+            
+            weaponUI.GetCurrentWeapon(data.dropWeaponImage, data.ammo);
+            weaponCompo.WeaponChange(data);
             Destroy(collision.gameObject);
         }
     }
