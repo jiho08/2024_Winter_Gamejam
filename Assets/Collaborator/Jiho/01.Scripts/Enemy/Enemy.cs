@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float targetCheckRadius, targetCheckAngle;
+    [SerializeField] private float visiableCheckRadius;
     [SerializeField] private float attackRadius, attackAngle;
 
     [SerializeField] private Transform target;
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
     {
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
+        attackRadius = weaponData.attackRange;
     }
 
     private void Update()
@@ -138,7 +140,7 @@ public class Enemy : MonoBehaviour
 
     private bool CheckTargetBetweenWall()
     {
-        var collision = Physics2D.OverlapCircle(transform.position, targetCheckRadius, whatIsPlayer);
+        var collision = Physics2D.OverlapCircle(transform.position, visiableCheckRadius, whatIsPlayer);
 
         if (collision != null)
         {
