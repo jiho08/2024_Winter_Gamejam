@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,10 +6,12 @@ public class Stage : MonoBehaviour
 {
     public StageData stageSO;
     private Image image;
+    [SerializeField] private TextMeshProUGUI _levelText;
 
-    private void Awake()
+    private void Start()
     {
         image = GetComponent<Image>();
+        _levelText.text = stageSO.stageNum.ToString();
     }
 
     private void Update()
@@ -40,6 +43,6 @@ public class Stage : MonoBehaviour
     private void LoadScene()
     {
         if (stageSO.state != state.Lock)
-            StageManager.instance.StageLoad(stageSO.stageNum);
+            StageManager.instance.StageLoad(stageSO.stageSceneNum);
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Hellmade.Sound;
 
 public class Switch : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class Switch : MonoBehaviour
     [SerializeField] private Sprite openSwitchImage, closeSwitchImage;
     private SpriteRenderer spriteRenderer;
     public LayerMask playerLayer;
+    public AudioClip switchSound;
 
     private void Awake()
     {
@@ -17,8 +19,17 @@ public class Switch : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & playerLayer) != 0)
         {
-            open = true;
-            spriteRenderer.sprite = openSwitchImage;
+            if(!open)
+            {
+                EazySoundManager.PlaySound(switchSound);
+                Open();
+            }
         }
+    }
+
+    public void Open()
+    {
+        open = true;
+        spriteRenderer.sprite = openSwitchImage;
     }
 }
