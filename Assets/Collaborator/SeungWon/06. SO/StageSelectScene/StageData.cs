@@ -4,6 +4,7 @@ using UnityEngine;
 public class StageData : ScriptableObject
 {
     public int stageNum;
+    public int stageSceneNum;
     public Sprite completeStageImage, unlockStageImage, lockStageImage;
     public state state = state.Lock;
 }
