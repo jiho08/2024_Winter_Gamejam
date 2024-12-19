@@ -17,4 +17,5 @@ public class WeaponDataSO : ScriptableObject
     
     public bool isPenetration;
     public bool isDiffuse;
+    public bool isBurst;
 }
