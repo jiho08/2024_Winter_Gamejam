@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4377668894015014254
+--- !u!1 &8548622374963063197
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6613734223961503993}
-  - component: {fileID: 7691143055042667607}
-  - component: {fileID: 7958079549218581608}
-  - component: {fileID: 994639562498614014}
-  - component: {fileID: 6417731446100412620}
-  m_Layer: 11
-  m_Name: Door
-  m_TagString: Wall
+  - component: {fileID: 2398874207021106097}
+  - component: {fileID: 5396162259601666556}
+  - component: {fileID: 6650108196697486488}
+  - component: {fileID: 2019597536563936751}
+  m_Layer: 0
+  m_Name: ExitPoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6613734223961503993
+--- !u!4 &2398874207021106097
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377668894015014254}
+  m_GameObject: {fileID: 8548622374963063197}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: 1.45, y: -0.92, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7691143055042667607
+--- !u!212 &5396162259601666556
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377668894015014254}
+  m_GameObject: {fileID: 8548622374963063197}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -76,11 +75,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1539053805
-  m_SortingLayer: 4
+  m_SortingLayerID: -971112171
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.58029354, g: 0.3050313, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.05946684, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -90,47 +89,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7958079549218581608
+--- !u!114 &6650108196697486488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377668894015014254}
+  m_GameObject: {fileID: 8548622374963063197}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 153a8b58c9453e949a261c7c69a3ea58, type: 3}
+  m_Script: {fileID: 11500000, guid: 60bb401a6c5293043ae615c6cdcc70da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _connectedSwitchs:
-  - {fileID: 0}
-  - {fileID: 0}
-  _moveTargetPos: {fileID: 0}
-  openingDuration: 2
-  doorOpenSound: {fileID: 8300000, guid: a9716e7e0e29ad649a1d7e8cdb239e0f, type: 3}
---- !u!114 &994639562498614014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377668894015014254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_OverrideArea: 1
-  m_Area: 0
-  m_IgnoreFromBuild: 0
-  m_AffectedAgents: ffffffff
---- !u!61 &6417731446100412620
+  enterLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!61 &2019597536563936751
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4377668894015014254}
+  m_GameObject: {fileID: 8548622374963063197}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -154,7 +134,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
