@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class PlayerDeadCheck : MonoBehaviour
 {
     public ParticleSystem deadParticle;
-    [SerializeField] private GameObject noise;
+    public GameManager gameManager;
 
     public PlayerMove player;
     public bool isDead = false;
@@ -17,7 +17,7 @@ public class PlayerDeadCheck : MonoBehaviour
 
     private void Awake()
     {
-    
+        gameManager = FindAnyObjectByType<GameManager>();
     }
     private void Start()
     {
@@ -51,7 +51,7 @@ public class PlayerDeadCheck : MonoBehaviour
     IEnumerator Dead()
     {
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(Noise());
+        StartCoroutine(gameManager.Noise());
         yield return new WaitForSeconds(1f);
         isDead = false;
         SceneManager.LoadScene(SceneManager.sceneCount);
@@ -59,13 +59,7 @@ public class PlayerDeadCheck : MonoBehaviour
 
 
 
-    public IEnumerator Noise()
-    {
-
-        Time.timeScale = 1.0f;
-        noise.SetActive(true);
-        yield return null;
-    }
+    
 
 
 

@@ -172,6 +172,7 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
+        Debug.Log(--GameManager.enemyCount);
         cam.Shake();
         dropWeapon.weapon = weaponData;
         DropWeapon drop = Instantiate(dropWeapon, transform.position, Quaternion.identity);
