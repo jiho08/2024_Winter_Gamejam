@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 [System.Serializable]
 public class PoolObject
@@ -45,7 +46,6 @@ public class PoolManager : MonoBehaviour
                     var bulletpool = PoolList[num].poolStack.Pop();
                     bulletpool.transform.position = owner.position;
                     bulletpool.transform.rotation = owner.rotation;
-                    bulletpool.GetComponent<Projectile>().owner = owner;
                     bulletpool.SetActive(true);
                 }
 
@@ -61,20 +61,50 @@ public class PoolManager : MonoBehaviour
     }
 
     public static void ProjectileSpawn(Transform owner, float bulletSpeed, bool isPenetration,
-        bool isDiffuse)
+        bool isDiffuse, int bulletCount)
     {
         if (PoolList[0].poolStack.Count != 0)
         {
-            var bulletpool = PoolList[0].poolStack.Pop();
-            bulletpool.transform.position = owner.position;
-            bulletpool.transform.rotation = owner.rotation;
+            if (isDiffuse)
+            {
+                for (int i = 0; i < bulletCount; i++)
+                {
+                    var bulletpool = PoolList[0].poolStack.Pop();
+                    bulletpool.transform.position = owner.position;
+                    Debug.Log(owner.parent);
+                    bulletpool.transform.eulerAngles = owner.eulerAngles + new Vector3(0,0,Random.Range(-20, 20));
 
-            var bullet = bulletpool.GetComponent<Projectile>();
+                    var bullet = bulletpool.GetComponent<Projectile>();
 
-            bullet.owner = owner;
-            bullet.speed = bulletSpeed;
-            bullet.isPenetration = isPenetration;
-            bulletpool.SetActive(true);
+                    bullet.speed = bulletSpeed;
+                    bullet.isPenetration = isPenetration;
+                    bullet.isDiffuse = isDiffuse;
+
+
+
+                    bulletpool.SetActive(true);
+                }
+            }
+            else
+            {
+                var bulletpool = PoolList[0].poolStack.Pop();
+                bulletpool.transform.position = owner.position;
+                bulletpool.transform.rotation = owner.rotation;
+
+                var bullet = bulletpool.GetComponent<Projectile>();
+
+                bullet.speed = bulletSpeed;
+                bullet.isPenetration = isPenetration;
+                bullet.isDiffuse = isDiffuse;
+
+
+
+                bulletpool.SetActive(true);
+            }
+            
+            
+
+
 
             // bulletpool.GetComponent<Projectile>().owner = owner;
         }

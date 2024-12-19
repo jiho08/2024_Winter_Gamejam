@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Shoot()
     {
-        PoolManager.Spawn(0, weapon.transform);
+        PoolManager.ProjectileSpawn(weapon.transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.projectileCount);
 
         yield return new WaitForSeconds(weaponData.attackDelay);
     }
