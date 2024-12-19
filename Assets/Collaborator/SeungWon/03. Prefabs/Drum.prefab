@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3964638770280062426}
   - component: {fileID: 7100858895276308329}
   - component: {fileID: 6318118263975297211}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Explosive_Range
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5861515157475380851}
   - component: {fileID: 4686304822365306445}
   - component: {fileID: 5584645822239884738}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: Drum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
