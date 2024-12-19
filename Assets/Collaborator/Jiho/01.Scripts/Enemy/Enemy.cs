@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Hellmade.Sound;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject deadParticle;
 
     [SerializeField] private DropWeapon dropWeapon;
+    
+    [SerializeField] AudioClip shootSound, deadSound;
 
     private PoolManager poolManager;
     private NavMeshAgent _agent;
@@ -85,6 +88,7 @@ public class Enemy : MonoBehaviour
     {
         if(attackTime >= weaponData.attackDelay)
         {
+            EazySoundManager.PlaySound(shootSound);
             poolManager.ProjectileSpawn(weapon.transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount);
             attackTime = 0;
         }
@@ -172,7 +176,8 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
-        Debug.Log(--GameManager.enemyCount);
+        --GameManager.enemyCount;
+        EazySoundManager.PlaySound(deadSound);
         cam.Shake();
         dropWeapon.weapon = weaponData;
         DropWeapon drop = Instantiate(dropWeapon, transform.position, Quaternion.identity);
