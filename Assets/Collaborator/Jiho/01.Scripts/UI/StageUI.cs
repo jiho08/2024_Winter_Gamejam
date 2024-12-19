@@ -55,6 +55,7 @@ public class StageUI : MonoBehaviour
     
     public static void ClearStage(int stage)
     {
+        
         _stageClearList[stage] = true;
     }
 }

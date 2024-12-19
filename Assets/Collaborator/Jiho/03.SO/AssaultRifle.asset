@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AssaultRifle
   m_EditorClassIdentifier: 
   weaponName: AssaultRifle
-  dropWeaponImage: {fileID: -4826763582353702341, guid: 688e3eed0f881894080b78cf63af2172, type: 3}
+  dropWeaponImage: {fileID: -7307453944819525389, guid: 8c31f43f8e6fe354cb15084aef1c9478, type: 3}
   weaponImage: {fileID: -7444478418942065443, guid: ed023d3f083c7de469166099c1aa3aa2, type: 3}
   projectilePrefab: {fileID: 8985867480417580802, guid: 87bfdb4d62ba1e94681596e2536f8062, type: 3}
   projectileCount: 3
