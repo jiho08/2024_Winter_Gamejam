@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pistol-removebg-preview_0: 2317878002120289825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

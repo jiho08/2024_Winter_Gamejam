@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ShotGun-removebg-preview_0: -915366205223638910
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
