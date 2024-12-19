@@ -176,7 +176,7 @@ public class Enemy : MonoBehaviour
 
     public void Dead()
     {
-        --GameManager.enemyCount;
+        GameManager.enemyCount--;
         EazySoundManager.PlaySound(deadSound);
         cam.Shake();
         dropWeapon.weapon = weaponData;

@@ -8,7 +8,7 @@ public class ExitPoint : MonoBehaviour
     {
         if(((1 << collision.gameObject.layer) & enterLayer) != 0)
         {
-            GameManager.instance.StageClear("좀 쳤다ㅋㅋ");
+            GameManager.instance.StageClear("클리어");
         }
     }
 }

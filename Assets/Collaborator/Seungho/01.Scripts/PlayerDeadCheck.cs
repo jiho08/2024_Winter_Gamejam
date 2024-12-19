@@ -63,7 +63,7 @@ public class PlayerDeadCheck : MonoBehaviour
         StartCoroutine(gameManager.Noise());
         yield return new WaitForSeconds(1f);
         isDead = false;
-        SceneManager.LoadScene(SceneManager.sceneCount);
+        SceneManager.LoadScene(StageUI._currentStage);
     }
 
 
