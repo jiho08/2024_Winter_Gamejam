@@ -38,17 +38,22 @@ public class PlayerDeadCheck : MonoBehaviour
     {
         if (isDead && coroutine == null)
         {
-            
-            player.inputAction.Player.Disable();
-            GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
-            transform.GetChild(0).gameObject.SetActive(false);
-            Instantiate(deadParticle, player.transform.position, Quaternion.identity);
-            Time.timeScale = 0.1f;
-            coroutine = StartCoroutine(Dead());
+
+            Dead();
         }
     }
 
-    IEnumerator Dead()
+    public void Dead()
+    {
+        player.inputAction.Player.Disable();
+        GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
+        transform.GetChild(0).gameObject.SetActive(false);
+        Instantiate(deadParticle, player.transform.position, Quaternion.identity);
+        Time.timeScale = 0.1f;
+        coroutine = StartCoroutine(DeadCoroutine());
+    }
+
+    IEnumerator DeadCoroutine()
     {
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(gameManager.Noise());

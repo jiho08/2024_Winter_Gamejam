@@ -48,6 +48,10 @@ public class Projectile : MonoBehaviour
         {
             PoolManager.Return(0, gameObject);
         }
+        else
+        {
+            PoolManager.Return(0, gameObject);
+        }
         
 
     }
