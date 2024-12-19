@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stage10
   m_EditorClassIdentifier: 
   stageNum: 10
+  stageSceneNum: 10
   completeStageImage: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   unlockStageImage: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   lockStageImage: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
