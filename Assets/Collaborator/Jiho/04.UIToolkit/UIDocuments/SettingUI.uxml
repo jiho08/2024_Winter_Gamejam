@@ -1,0 +1,3 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:Button name="Button_Option" style="position: absolute; width: 150px; height: 150px; background-image: url(&quot;project://database/Assets/Collaborator/Jiho/05.Sprites/settingIcon.png?fileID=-4553384029410632487&amp;guid=5c64b46a6c1144549b9ac42ddc8e40fc&amp;type=3#settingIcon_0&quot;); background-color: rgba(255, 255, 255, 0);" />
+</engine:UXML>
