@@ -16,7 +16,7 @@ public class StageUI : MonoBehaviour
     [SerializeField] private AudioClip clickSound, noSound;
 
     private static List<bool> _stageClearList = new();
-    private int _currentStage = 1;
+    public static int _currentStage = 1;
 
     private void Start()
     {
