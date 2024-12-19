@@ -4,31 +4,39 @@ using UnityEngine.SceneManagement;
 
 public class ClearManager : MonoBehaviour
 {
+    public int mission = 0; // 0 : 모든 적 처치, 1 : 탈출 지점 도달
     private TextAction text;
+    public float timer;
+    public Transform enemys;
+    private float enemyCount;
 
 
+
+    private void Awake()
+    {
+        text = FindAnyObjectByType<TextAction>();
+    }
     public void Start()
     {
-        
+        enemyCount = enemys.GetComponentsInChildren<Enemy>().Length;
         StageStart();
+    }
+    private void Update()
+    {
+        timer += Time.deltaTime;
     }
 
     public void StageStart()
     {
-        /* 씬에 따라 클리어 조건 다르게 출력 (기본 : 모든 적 처치)*/
-        switch (SceneManager.sceneCount)
+        
+        switch (mission)
         {
-            case 3:
-                text.ShowText("탈출 지점 도달");
-                break;
-
-            case 5:
-                text.ShowText("모든 스위치 가동");
-                break;
-
-
-            default:
+            case 0:
                 text.ShowText("모든 적 처치");
+                break;
+
+            case 1:
+                text.ShowText("탈출 지점 도달");
                 break;
         }
     }

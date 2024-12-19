@@ -17,9 +17,10 @@ MonoBehaviour:
   weaponImage: {fileID: -2697160943321680449, guid: ac3f080b16c38d84d9d1df24c846b3ac, type: 3}
   projectilePrefab: {fileID: 8985867480417580802, guid: 87bfdb4d62ba1e94681596e2536f8062, type: 3}
   projectileCount: 1
-  ammo: 6
+  ammo: 1
   bulletSpeed: 15
   attackDelay: 1
-  attackRange: 5
+  attackRange: 10
   isPenetration: 0
   isDiffuse: 0
+  isBurst: 0
