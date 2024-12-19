@@ -1,4 +1,5 @@
 using System.Collections;
+using Hellmade.Sound;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerDeadCheck : MonoBehaviour
 {
+    [SerializeField] private AudioClip deadSound;
+    
     public ParticleSystem deadParticle;
     public GameManager gameManager;
 
@@ -45,6 +48,7 @@ public class PlayerDeadCheck : MonoBehaviour
 
     public void Dead()
     {
+        EazySoundManager.PlaySound(deadSound);
         player.inputAction.Player.Disable();
         GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 0);
         transform.GetChild(0).gameObject.SetActive(false);
