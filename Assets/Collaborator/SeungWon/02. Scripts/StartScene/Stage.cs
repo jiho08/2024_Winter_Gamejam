@@ -35,14 +35,16 @@ public class Stage : MonoBehaviour
 
     public void EnterStage_Fade()
     {
-        StartSceneManager.instance.fade_Animator.gameObject.SetActive(true);
-        StartSceneManager.instance.fade_Animator.SetTrigger("Fade_ForeverDark");
-        Invoke("LoadScene", 2.5f);
+        if (stageSO.state != state.Lock)
+        {
+            StartSceneManager.instance.fade_Animator.gameObject.SetActive(true);
+            StartSceneManager.instance.fade_Animator.SetTrigger("Fade_ForeverDark");
+            Invoke("LoadScene", 2.5f);
+        }
     }
 
     private void LoadScene()
     {
-        if (stageSO.state != state.Lock)
-            StageManager.instance.StageLoad(stageSO.stageSceneNum);
+        StageManager.instance.StageLoad(stageSO.stageSceneNum);
     }
 }

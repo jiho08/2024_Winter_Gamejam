@@ -19,13 +19,13 @@ TagManager:
   - Enemy
   - Bullet
   - Interaction
-  - Trap
+  - Mine
   - Wall
   - camera
   - Glass
   - OverUI
   - dropWeapon
-  - 
+  - Drum
   - 
   - 
   - 
