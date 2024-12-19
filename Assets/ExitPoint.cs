@@ -8,7 +8,7 @@ public class ExitPoint : MonoBehaviour
     {
         if(((1 << collision.gameObject.layer) & enterLayer) != 0)
         {
-            Debug.Log("End");
+            GameManager.instance.StageClear("Á» ÃÆ´Ù¤»¤»");
         }
     }
 }
