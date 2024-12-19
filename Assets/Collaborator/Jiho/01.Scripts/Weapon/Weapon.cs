@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponDataSO weaponData;
     [SerializeField] private AudioClip shootSound, noSound;
+    [SerializeField] private WeaponUI weaponUI;
     
     private PoolManager poolManager;
     private float _currentDelay;
@@ -21,6 +22,7 @@ public class Weapon : MonoBehaviour
     {
         _currentDelay = weaponData.attackDelay;
         _ammo = weaponData.ammo;
+        weaponUI.GetCurrentWeapon(weaponData.dropWeaponImage, _ammo);
     }
 
     private void Update()
@@ -46,6 +48,7 @@ public class Weapon : MonoBehaviour
         EazySoundManager.PlaySound(shootSound);
         _currentDelay = 0;
         --_ammo;
+        weaponUI.GetCurrentAmmo(_ammo);
         poolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount);
     }
 
