@@ -5,27 +5,31 @@ public class Projectile : MonoBehaviour
 {
     Rigidbody2D rb;
     TrailRenderer tr;
+    public ParticleSystem particle;
     public float speed;
-    public Transform owner;
+
     public bool isPenetration;
+    public bool isDiffuse;
 
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         tr = GetComponent<TrailRenderer>();
-        owner = transform;
     }
 
     private void OnEnable()
     {
         tr.Clear();
         rb.linearVelocity = Vector3.zero;
-        rb.AddForce(owner.transform.right * speed, ForceMode2D.Impulse);
+        
+        rb.AddForce(transform.right*speed, ForceMode2D.Impulse);
+       
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        PoolManager.Spawn(1, transform);
         PoolManager.Return(0, gameObject);
         //if (collision.gameObject.CompareTag("Wall"))
         //{
@@ -37,4 +41,6 @@ public class Projectile : MonoBehaviour
         //}
 
     }
+
+    
 }
