@@ -9,7 +9,15 @@ public class Breakable_Wall : MonoBehaviour
     {
         if(((1 << collision.gameObject.layer) & canBreakObjLayer) != 0)
         {
-            Destroy(collision.gameObject);
+            if (collision.collider.CompareTag("Player"))
+            {
+                collision.gameObject.GetComponent<PlayerDeadCheck>().isDead = true;
+            }
+            else if(collision.collider.CompareTag("Enemy"))
+            {
+                collision.gameObject.GetComponent<Enemy>().Dead();
+            }
+            
             Destroy(gameObject);
             EazySoundManager.PlaySound(switchSound);
         }

@@ -1,8 +1,12 @@
+using Hellmade.Sound;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerInterct : MonoBehaviour
 {
+    [SerializeField] private AudioClip weaponInteractSound;
+    [SerializeField] private WeaponUI weaponUI;
+    
     Weapon weaponCompo;
 
     private void Awake()
@@ -14,8 +18,12 @@ public class PlayerInterct : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Weapon"))
         {
-            weaponCompo.WeaponChange(collision.gameObject.GetComponent<DropWeapon>().weapon);
-            Debug.Log($"{collision.gameObject.GetComponent<DropWeapon>().weapon.weaponName} ภๅย๘วิ");
+            EazySoundManager.PlaySound(weaponInteractSound);
+
+            var data = collision.gameObject.GetComponent<DropWeapon>().weapon;
+            
+            weaponUI.GetCurrentWeapon(data.dropWeaponImage, data.ammo);
+            weaponCompo.WeaponChange(data);
             Destroy(collision.gameObject);
         }
     }

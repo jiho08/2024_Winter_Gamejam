@@ -24,10 +24,26 @@ public class ExplosiveRange : MonoBehaviour
     public void Explosive(GameObject baseTrap, GameObject causedObj)
     {
         for (int i = 0; i < InRangeObject.Count; i++)
-            Destroy(InRangeObject[0]);
+        {
+            if (InRangeObject[i].TryGetComponent(out PlayerDeadCheck p))
+            {
+                p.isDead = true;
+            }
+            else if (InRangeObject[i].TryGetComponent(out Enemy enemy))
+            {
+                enemy.Dead();
+            }
+        }
 
-        if(((1 << causedObj.layer) & detectiveLayer) != 0)
-            Destroy(causedObj);
+        if (causedObj.TryGetComponent(out PlayerDeadCheck player))
+        {
+            player.isDead = true;
+        }
+        else if (causedObj.TryGetComponent(out Enemy enemy))
+        {
+            enemy.Dead();
+        }
+
 
         Destroy(baseTrap);
     }

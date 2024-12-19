@@ -34,13 +34,13 @@ public class WeaponUI : UIToolkit
     public void GetCurrentWeapon(Sprite weapon, int ammo)
     {
         _imageVisualElement.style.backgroundImage = weapon.texture;
-        _currentAmmoLabel.text = $"{ammo} /";
+        _currentAmmoLabel.text = $"{ammo}/";
         _maxAmmoLabel.text = ammo.ToString();
     }
     
     public void GetCurrentAmmo(int ammo)
     {
-        _currentAmmoLabel.text = $"{ammo} /";
+        _currentAmmoLabel.text = $"{ammo}/";
     }
     
     // 무기 정보 받아오기 (무기 바뀔 때)

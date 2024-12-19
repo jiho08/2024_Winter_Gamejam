@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class TextAction : MonoBehaviour
 {
@@ -14,17 +15,21 @@ public class TextAction : MonoBehaviour
 
     public void ShowText(string content)
     {
+        transform.parent.localScale = new Vector3(6, 6, 6);
         transform.parent.DOScale(new Vector3(1, 1, 1), 0.1f).SetEase(Ease.OutExpo);
         if (volume.profile.TryGet<DepthOfField>(out var distortion))
         {
 
-            StartCoroutine(TextShowEffect(distortion, 5f));
+            StartCoroutine(TextShowEffect(distortion, 5f, content));
         }
     }
 
-    IEnumerator TextShowEffect(DepthOfField depthOfField, float effectSpeed)
+    IEnumerator TextShowEffect(DepthOfField depthOfField, float effectSpeed, string message)
     {
         float time = 0;
+        var a = GetComponent<TextMeshPro>();
+        a.color = new Color(255, 255, 255, 255);
+        a.text = message;
         while (time < 1)
         {
             time += Time.deltaTime * effectSpeed;
@@ -36,7 +41,7 @@ public class TextAction : MonoBehaviour
         }
         yield return new WaitForSecondsRealtime(0.5f);
         time = 0;
-        var a = GetComponent<TextMeshPro>();
+        
         while (time < 1)
         {
             time += Time.deltaTime;
@@ -45,6 +50,6 @@ public class TextAction : MonoBehaviour
             yield return null;
 
         }
-        transform.parent.gameObject.SetActive(false);
+        
     }
 }
