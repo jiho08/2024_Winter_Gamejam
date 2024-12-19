@@ -25,6 +25,8 @@ public class Enemy : MonoBehaviour
     private readonly float _checkTimer = 0.3f;
     private float _lastCheckTime;
 
+    private float attackTime = 0;
+
     private void Awake()
     {
         dropWeapon.weapon = weaponData;
@@ -40,6 +42,7 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
+        attackTime += Time.deltaTime;
         LookAtTarget();
 
         _renderer.enabled = !CheckTargetBetweenWall();
@@ -58,25 +61,30 @@ public class Enemy : MonoBehaviour
     {
         if (CheckTargetInCheckRadius() && !CheckTargetInAttackRadius())
         {
-            StopCoroutine(Shoot());
+            Shoot();
             _agent.SetDestination(target.position);
         }
         else if (CheckTargetInCheckRadius() && CheckTargetInAttackRadius())
         {
-            StartCoroutine(Shoot());
+            Shoot();
         }
         else if (!CheckTargetInCheckRadius() && !CheckTargetInAttackRadius())
         {
-            StopCoroutine(Shoot());
+            Shoot();
             _agent.SetDestination(transform.position);
         }
     }
 
-    private IEnumerator Shoot()
+    private void Shoot()
     {
-        PoolManager.Spawn(0, weapon.transform);
+        if(attackTime >= weaponData.attackDelay)
+        {
+            PoolManager.ProjectileSpawn(weapon.transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.projectileCount);
+            attackTime = 0;
+        }
+            
 
-        yield return new WaitForSeconds(weaponData.attackDelay);
+        
     }
 
     private bool CheckTargetInCheckRadius()

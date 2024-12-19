@@ -33,7 +33,7 @@ public class Weapon : MonoBehaviour
 
     private void Shoot()
     {
-        PoolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse);
+        PoolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.projectileCount);
     }
 
     // 웨폰 체인지 됐을 때 어택 딜레이, 탄창 초기화 시켜주기
