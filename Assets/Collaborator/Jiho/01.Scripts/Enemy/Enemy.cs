@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour
         dropWeapon.weapon = weaponData;
         _agent = GetComponent<NavMeshAgent>();
         _renderer = GetComponent<SpriteRenderer>();
+        weapon.GetComponent<SpriteRenderer>().sprite = weaponData.weaponImage;
     }
 
     private void Start()

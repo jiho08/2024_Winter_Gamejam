@@ -41,6 +41,7 @@ public class Weapon : MonoBehaviour
     public void WeaponChange(WeaponDataSO weaponData)
     {
         this.weaponData = weaponData;
+        GetComponent<SpriteRenderer>().sprite = weaponData.weaponImage;
         _currentDelay = weaponData.attackDelay;
         _ammo = weaponData.ammo;
     }
