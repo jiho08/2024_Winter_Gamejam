@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Stage/StageSO")]
-public class StageSO : ScriptableObject
+public class StageData : ScriptableObject
 {
     public int stageNum;
     public Sprite completeStageImage, unlockStageImage, lockStageImage;
