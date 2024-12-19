@@ -4,12 +4,14 @@ using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Hellmade.Sound;
+using TMPro;
 using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
 {
     [SerializeField] private List<CinemachineCamera> cameraList = new();
     [SerializeField] private List<Slider> sliderList = new();
+    [SerializeField] private TMP_Dropdown screenDropdown;
 
     private void Start()
     {
@@ -25,6 +27,11 @@ public class TitleUI : MonoBehaviour
         EazySoundManager.GlobalMusicVolume = musicValue;
         EazySoundManager.GlobalSoundsVolume = effectValue;
         EazySoundManager.GlobalUISoundsVolume = effectValue;
+
+        var screenValue = PlayerPrefs.GetInt("Screen", 0);
+        screenDropdown.value = screenValue;
+        Screen.fullScreenMode = screenValue == 0 ?
+            FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
     }
 
     public void StartButton()
@@ -67,5 +74,22 @@ public class TitleUI : MonoBehaviour
         PlayerPrefs.SetFloat("Effect", value);
         EazySoundManager.GlobalSoundsVolume = value;
         EazySoundManager.GlobalUISoundsVolume = value;
+    }
+    
+    public void ScreenDropDownValueChanged(int value)
+    {
+        switch (value)
+        {
+            case 0:
+                Debug.Log("전체 화면");
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                PlayerPrefs.SetInt("Screen", 0);
+                break;
+            case 1:
+                Debug.Log("창 화면");
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+                PlayerPrefs.SetInt("Screen", 1);
+                break;
+        }
     }
 }
