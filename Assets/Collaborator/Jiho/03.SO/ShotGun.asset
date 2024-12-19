@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ShotGun
   m_EditorClassIdentifier: 
   weaponName: ShotGun
-  weaponImage: {fileID: 7631219046128225658, guid: 0079e726734b881438fcbd697b2f262f, type: 3}
+  dropWeaponImage: {fileID: 7631219046128225658, guid: 0079e726734b881438fcbd697b2f262f, type: 3}
+  weaponImage: {fileID: -7501402795145922109, guid: 225ded14bfc0c724fab370a77247f5cc, type: 3}
   projectilePrefab: {fileID: 8985867480417580802, guid: 87bfdb4d62ba1e94681596e2536f8062, type: 3}
   projectileCount: 5
   ammo: 2

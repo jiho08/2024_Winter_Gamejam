@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   weaponName: Pistol
-  weaponImage: {fileID: 4319395737909131107, guid: c513b990eda938046acdd559e1519976, type: 3}
+  dropWeaponImage: {fileID: 4319395737909131107, guid: c513b990eda938046acdd559e1519976, type: 3}
+  weaponImage: {fileID: -2697160943321680449, guid: ac3f080b16c38d84d9d1df24c846b3ac, type: 3}
   projectilePrefab: {fileID: 8985867480417580802, guid: 87bfdb4d62ba1e94681596e2536f8062, type: 3}
   projectileCount: 1
   ammo: 6

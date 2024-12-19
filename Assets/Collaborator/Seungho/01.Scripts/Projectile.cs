@@ -30,15 +30,25 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         PoolManager.Spawn(1, transform);
-        PoolManager.Return(0, gameObject);
-        //if (collision.gameObject.CompareTag("Wall"))
-        //{
-        //    PoolManager.Return(0, gameObject);
-        //}
-        //else if (collision.gameObject.CompareTag("Player") && !isPenetration)
-        //{
-        //    PoolManager.Return(0, gameObject);
-        //}
+        
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            PoolManager.Return(0, gameObject);
+        }
+        else if (isPenetration)
+        {
+            rb.AddForce(transform.right * speed, ForceMode2D.Impulse);
+
+        }
+        else if (collision.gameObject.CompareTag("Player") && !isPenetration)
+        {
+            PoolManager.Return(0, gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Enemy") && !isPenetration)
+        {
+            PoolManager.Return(0, gameObject);
+        }
+        
 
     }
 
