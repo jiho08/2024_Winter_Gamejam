@@ -8,6 +8,8 @@ using UnityEngine.UIElements;
 
 public class SettingUI : UIToolkit
 {
+    [SerializeField] private AudioClip clickSound;
+    
     private const string _optionStr = "Button_Option";
     private const string _exitStr = "Button_Exit";
     private const string _settingStr = "VisualElement_Setting";
@@ -32,6 +34,7 @@ public class SettingUI : UIToolkit
     private void OnEnable()
     {
         GetUIElements();
+        Initialize();
         
         _settingVisualElement.style.display = DisplayStyle.None;
 
@@ -116,16 +119,19 @@ public class SettingUI : UIToolkit
     private void ClickOptionButton()
     {
         _settingVisualElement.style.display = DisplayStyle.Flex;
+        EazySoundManager.PlayUISound(clickSound);
     }
 
     private void ClickExitButton()
     {
         _settingVisualElement.style.display = DisplayStyle.None;
+        EazySoundManager.PlayUISound(clickSound);
     }
     
     private void ClickGameExitButton()
     {
         Time.timeScale = 1;
+        EazySoundManager.PlayUISound(clickSound);
         SceneManager.LoadScene(0);
     }
     
