@@ -5,9 +5,16 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] private WeaponDataSO weaponData;
 
+    private PoolManager poolManager;
     private float _currentDelay;
     private int _ammo;
+    private float attackDelay;
 
+
+    private void Awake()
+    {
+        poolManager = FindAnyObjectByType<PoolManager>();
+    }
     private void Start()
     {
         _currentDelay = weaponData.attackDelay;
@@ -27,13 +34,15 @@ public class Weapon : MonoBehaviour
             }
 
             Shoot();
-            --_ammo;
+            
         }
     }
 
     private void Shoot()
     {
-        PoolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.projectileCount);
+        _currentDelay = 0;
+        --_ammo;
+        poolManager.ProjectileSpawn(transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount);
     }
 
     // 웨폰 체인지 됐을 때 어택 딜레이, 탄창 초기화 시켜주기
