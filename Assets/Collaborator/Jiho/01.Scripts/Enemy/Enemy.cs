@@ -17,6 +17,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private WeaponDataSO weaponData;
     [SerializeField] private GameObject deadParticle;
 
+    [SerializeField] private DropWeapon dropWeapon;
+
     private NavMeshAgent _agent;
     private SpriteRenderer _renderer;
 
@@ -25,6 +27,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        dropWeapon.weapon = weaponData;
         _agent = GetComponent<NavMeshAgent>();
         _renderer = GetComponent<SpriteRenderer>();
     }
@@ -153,11 +156,17 @@ public class Enemy : MonoBehaviour
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
     }
 
+    private void Dead()
+    {
+        Instantiate(dropWeapon, transform.position, Quaternion.identity);
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
             Destroy(gameObject);
+            Dead();
             Instantiate(deadParticle, transform.position, Quaternion.identity);
         }
     }

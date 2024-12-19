@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Stage : MonoBehaviour
 {
-    public StageSO stageSO;
+    public StageData stageSO;
     private Image image;
 
     private void Awake()

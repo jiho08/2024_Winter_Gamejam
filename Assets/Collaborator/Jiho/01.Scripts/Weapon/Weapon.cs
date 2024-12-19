@@ -38,8 +38,9 @@ public class Weapon : MonoBehaviour
 
     // 웨폰 체인지 됐을 때 어택 딜레이, 탄창 초기화 시켜주기
     
-    public void WeaponChange()
+    public void WeaponChange(WeaponDataSO weaponData)
     {
+        this.weaponData = weaponData;
         _currentDelay = weaponData.attackDelay;
         _ammo = weaponData.ammo;
     }

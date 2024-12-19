@@ -6,7 +6,7 @@ public class StageManager : MonoBehaviour
     public static StageManager instance;
 
     [SerializeField] private GameObject stagesPrefabs;
-    [SerializeField] private StageSO[] stageSo;
+    [SerializeField] private StageData[] stageSo;
     [SerializeField] private Transform stagesTransform;
 
     private void Awake()
