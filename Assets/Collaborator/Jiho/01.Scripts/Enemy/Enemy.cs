@@ -20,8 +20,10 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private DropWeapon dropWeapon;
 
+    private PoolManager poolManager;
     private NavMeshAgent _agent;
     private SpriteRenderer _renderer;
+    private Cam cam;
 
     private readonly float _checkTimer = 0.3f;
     private float _lastCheckTime;
@@ -31,7 +33,9 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         dropWeapon.weapon = weaponData;
+        cam = FindAnyObjectByType<Cam>();
         _agent = GetComponent<NavMeshAgent>();
+        poolManager = FindAnyObjectByType<PoolManager>();
         _renderer = GetComponent<SpriteRenderer>();
         weapon.GetComponent<SpriteRenderer>().sprite = weaponData.weaponImage;
     }
@@ -64,7 +68,6 @@ public class Enemy : MonoBehaviour
     {
         if (CheckTargetInCheckRadius() && !CheckTargetInAttackRadius())
         {
-            Shoot();
             _agent.SetDestination(target.position);
         }
         else if (CheckTargetInCheckRadius() && CheckTargetInAttackRadius())
@@ -73,7 +76,6 @@ public class Enemy : MonoBehaviour
         }
         else if (!CheckTargetInCheckRadius() && !CheckTargetInAttackRadius())
         {
-            Shoot();
             _agent.SetDestination(transform.position);
         }
     }
@@ -82,7 +84,7 @@ public class Enemy : MonoBehaviour
     {
         if(attackTime >= weaponData.attackDelay)
         {
-            PoolManager.ProjectileSpawn(weapon.transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.projectileCount);
+            poolManager.ProjectileSpawn(weapon.transform, weaponData.bulletSpeed, weaponData.isPenetration, weaponData.isDiffuse, weaponData.isBurst, weaponData.projectileCount);
             attackTime = 0;
         }
             
@@ -169,6 +171,7 @@ public class Enemy : MonoBehaviour
 
     private void Dead()
     {
+        cam.Shake();
         Instantiate(dropWeapon, transform.position, Quaternion.identity);
     }
 
@@ -176,6 +179,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
+            
             Destroy(gameObject);
             Dead();
             Instantiate(deadParticle, transform.position, Quaternion.identity);

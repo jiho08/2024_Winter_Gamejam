@@ -16,13 +16,16 @@ public class PoolObject
 public class PoolManager : MonoBehaviour
 {
     public List<PoolObject> poolList = new List<PoolObject>();
+    PoolManager poolManager;
 
+    public Coroutine coroutine;
 
     public static List<PoolObject> PoolList { get; set; }
 
 
     private void Awake()
     {
+        poolManager = this;
         PoolList = poolList;
 
         for (int i = 0; i < PoolList.Count; i++)
@@ -34,10 +37,12 @@ public class PoolManager : MonoBehaviour
                 temp.SetActive(false);
             }
         }
+        
     }
 
     public static void Spawn(int num, Transform owner)
     {
+
         switch (num)
         {
             case 0:
@@ -60,8 +65,8 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public static void ProjectileSpawn(Transform owner, float bulletSpeed, bool isPenetration,
-        bool isDiffuse, int bulletCount)
+    public void ProjectileSpawn(Transform owner, float bulletSpeed, bool isPenetration,
+        bool isDiffuse, bool isBurst, int bulletCount)
     {
         if (PoolList[0].poolStack.Count != 0)
         {
@@ -84,6 +89,11 @@ public class PoolManager : MonoBehaviour
 
                     bulletpool.SetActive(true);
                 }
+            }
+            else if (isBurst)
+            {
+                
+                coroutine = StartCoroutine(Burst(owner, bulletSpeed, isPenetration, isDiffuse, bulletCount));
             }
             else
             {
@@ -114,5 +124,39 @@ public class PoolManager : MonoBehaviour
     {
         PoolList[num].poolStack.Push(poolObj);
         poolObj.SetActive(false);
+    }
+
+    public IEnumerator Burst(Transform owner, float bulletSpeed, bool isPenetration, bool isDiffuse, int bulletCount)
+    {
+
+        for(int i = 0; i < bulletCount; i++)
+        {
+            try
+            {
+                var bulletpool = PoolList[0].poolStack.Pop();
+                bulletpool.transform.position = owner.position;
+                Debug.Log(owner.parent);
+                bulletpool.transform.eulerAngles = owner.eulerAngles;
+
+                var bullet = bulletpool.GetComponent<Projectile>();
+
+                bullet.speed = bulletSpeed;
+                bullet.isPenetration = isPenetration;
+                bullet.isDiffuse = isDiffuse;
+
+                bulletpool.SetActive(true);
+            }
+            catch
+            {
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+
+
+
+        
     }
 }
