@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static float timer;
     public Transform enemys;
     [SerializeField] private GameObject noise;
+    [SerializeField] private GameObject UI;
     public static float enemyCount;
     public PlayerMove player;
 
