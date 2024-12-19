@@ -298,3 +298,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   owner: {fileID: 0}
+  isPenetration: 0

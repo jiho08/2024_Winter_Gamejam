@@ -12,6 +12,7 @@ public class Door : MonoBehaviour
     public float openingDuration;
     public AudioClip doorOpenSound;
 
+    private bool alreadyOpen = false;
     private void Update()
     {
         Check();
@@ -26,12 +27,13 @@ public class Door : MonoBehaviour
                 return;
             }
         }
-        Opening();
-        
+        if (!alreadyOpen)
+            Opening();
     }
 
     private void Opening()
     {
+        alreadyOpen = true;
         EazySoundManager.PlaySound(doorOpenSound);
         gameObject.transform.DOMove(_moveTargetPos.position, openingDuration);
     }

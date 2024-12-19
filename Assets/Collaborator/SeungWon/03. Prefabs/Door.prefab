@@ -106,7 +106,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _moveTargetPos: {fileID: 0}
-  openingDuration: 0.5
+  openingDuration: 2
+  doorOpenSound: {fileID: 8300000, guid: a9716e7e0e29ad649a1d7e8cdb239e0f, type: 3}
 --- !u!114 &994639562498614014
 MonoBehaviour:
   m_ObjectHideFlags: 0

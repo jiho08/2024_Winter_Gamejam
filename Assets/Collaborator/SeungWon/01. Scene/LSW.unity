@@ -683,7 +683,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  switchSound: {fileID: 8300000, guid: e82775e1804d8ce48b5cc3b3a875e33a, type: 3}
+  switchSound: {fileID: 8300000, guid: 76ba0c72a091dde4884a09fc793ea39f, type: 3}
 --- !u!61 &913846015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -999,7 +999,7 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  switchSound: {fileID: 8300000, guid: e82775e1804d8ce48b5cc3b3a875e33a, type: 3}
+  switchSound: {fileID: 8300000, guid: 76ba0c72a091dde4884a09fc793ea39f, type: 3}
 --- !u!61 &1584860579
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1111,50 +1111,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.43, y: 2.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1687129983
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1687129985}
-  - component: {fileID: 1687129984}
-  m_Layer: 0
-  m_Name: SoundManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1687129984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687129983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0500072cba35d4749ad862e7730ad14b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1687129985
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687129983}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1508,6 +1464,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 701487672}
     - target: {fileID: 7958079549218581608, guid: c1f210020b1ba4a468593d9efa6e84cc, type: 3}
+      propertyPath: openingDuration
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958079549218581608, guid: c1f210020b1ba4a468593d9efa6e84cc, type: 3}
       propertyPath: '_connectedSwitchs.Array.data[0]'
       value: 
       objectReference: {fileID: 2046511454}
@@ -1703,6 +1663,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3831308084299375577, guid: e11e2e1e4c6309643b025bed8ce1f657, type: 3}
+      propertyPath: switchSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 76ba0c72a091dde4884a09fc793ea39f, type: 3}
     - target: {fileID: 6098760156002659922, guid: e11e2e1e4c6309643b025bed8ce1f657, type: 3}
       propertyPath: m_Name
       value: Door_Switch
@@ -1771,4 +1735,3 @@ SceneRoots:
   - {fileID: 913846017}
   - {fileID: 4736342045246857211}
   - {fileID: 4080856276291613494}
-  - {fileID: 1687129985}
